@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#14291f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="Cabanas, Casas e Mansões no Villaggio Toscano — apresentação interativa.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Villaggio Toscano · Residências">
+<meta property="og:description" content="Cabanas, Casas e Mansões — apresentação interativa.">
+<meta property="og:image" content="https://eduardospohr90.github.io/villaggio-toscano-residencias/assets/og.jpg">
+<meta property="og:url" content="https://eduardospohr90.github.io/villaggio-toscano-residencias/">
+<meta name="twitter:card" content="summary_large_image">
+<title>Villaggio Toscano · Residências — Cabanas, Casas e Mansões</title>
+<script>document.documentElement.className='js';</script>
+<style>
+@font-face{font-family:'EB Garamond';font-style:italic;font-weight:400 600;font-display:swap;src:url(assets/SlGFmQSNjdsmc35JDF1K5GRwUjcdlttVFm-rI7e8QL99U6i1hGFJRvw.woff2) format('woff2')}
+@font-face{font-family:'EB Garamond';font-style:normal;font-weight:400 600;font-display:swap;src:url(assets/SlGUmQSNjdsmc35JDF1K5GR1SDk_YAPI.woff2) format('woff2')}
+@font-face{font-family:'Source Sans 3';font-style:normal;font-weight:300 700;font-display:swap;src:url(assets/nwpStKy2OAdR1K-IwhWudF-R3w8aZejf5Hc.woff2) format('woff2')}
+</style>
+<style>
+.i-academia{background-image:url(assets/academia.webp)}
+.i-aereo_vila{background-image:url(assets/aereo_vila.webp)}
+.i-cab_aereo{background-image:url(assets/cab_aereo.webp)}
+.i-cab_estar{background-image:url(assets/cab_estar.webp)}
+.i-cab_ext{background-image:url(assets/cab_ext.webp)}
+.i-cab_lareira{background-image:url(assets/cab_lareira.webp)}
+.i-cab_plan{background-image:url(assets/cab_plan.webp)}
+.i-cab_quarto{background-image:url(assets/cab_quarto.webp)}
+.i-capela{background-image:url(assets/capela.webp)}
+.i-casa_aereo{background-image:url(assets/casa_aereo.webp)}
+.i-casa_cozinha{background-image:url(assets/casa_cozinha.webp)}
+.i-casa_estar{background-image:url(assets/casa_estar.webp)}
+.i-casa_ext{background-image:url(assets/casa_ext.webp)}
+.i-casa_plan{background-image:url(assets/casa_plan.webp)}
+.i-casa_quarto{background-image:url(assets/casa_quarto.webp)}
+.i-casa_varanda{background-image:url(assets/casa_varanda.webp)}
+.i-cover_a{background-image:url(assets/cover_a.webp)}
+.i-cover_b{background-image:url(assets/cover_b.webp)}
+.i-desfrutar{background-image:url(assets/desfrutar.webp)}
+.i-eventos{background-image:url(assets/eventos.webp)}
+.i-final{background-image:url(assets/final.webp)}
+.i-fonte{background-image:url(assets/fonte.webp)}
+.i-heli{background-image:url(assets/heli.webp)}
+.i-hotel_aereo{background-image:url(assets/hotel_aereo.webp)}
+.i-implantacao{background-image:url(assets/implantacao.webp)}
+.i-infinity{background-image:url(assets/infinity.webp)}
+.i-logo{background-image:url(assets/logo.png)}
+.i-logo_mark{background-image:url(assets/logo_mark.png)}
+.i-man_aereo{background-image:url(assets/man_aereo.webp)}
+.i-man_estar{background-image:url(assets/man_estar.webp)}
+.i-man_ext{background-image:url(assets/man_ext.webp)}
+.i-man_jantar{background-image:url(assets/man_jantar.webp)}
+.i-man_plan{background-image:url(assets/man_plan.webp)}
+.i-man_quarto{background-image:url(assets/man_quarto.webp)}
+.i-man_varanda{background-image:url(assets/man_varanda.webp)}
+.i-mata{background-image:url(assets/mata.webp)}
+.i-panorama{background-image:url(assets/panorama.webp)}
+.i-parc0{background-image:url(assets/parc0.png)}
+.i-parc1{background-image:url(assets/parc1.png)}
+.i-parc2{background-image:url(assets/parc2.png)}
+.i-parc3{background-image:url(assets/parc3.png)}
+.i-parc4{background-image:url(assets/parc4.png)}
+.i-portico{background-image:url(assets/portico.webp)}
+.i-poster{background-image:url(assets/poster.webp)}
+.i-praca{background-image:url(assets/praca.webp)}
+.i-praca_noite{background-image:url(assets/praca_noite.webp)}
+.i-rentabilizar{background-image:url(assets/rentabilizar.webp)}
+.i-rota{background-image:url(assets/rota.webp)}
+.i-spa{background-image:url(assets/spa.webp)}
+.i-vinhedo{background-image:url(assets/vinhedo.webp)}
+</style>
+<style>
+:root{--g:#14291f;--g2:#1c3a2e;--g3:#25493a;--cr:#efe7d6;--cr2:#d8d1c0;--au:#c9a46c;--tc:#b8673f;--mt:rgba(239,231,214,.68);--ln:rgba(239,231,214,.22);
+--se:'EB Garamond',Garamond,'Times New Roman',serif;--sa:'Source Sans 3','Segoe UI',-apple-system,Helvetica,Arial,sans-serif;--vh:100vh}
+@supports(height:100dvh){:root{--vh:100dvh}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:clamp(14px,calc(.78vw + .55vh),42px);-webkit-text-size-adjust:100%;background:var(--g)}
+body{background:var(--g);color:var(--cr);font-family:var(--sa);font-weight:300;line-height:1.5;-webkit-font-smoothing:antialiased}
+em{font-style:italic}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit}
+.bg{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat}
+.ct{position:relative;z-index:3}
+.kick{font-family:var(--sa);font-weight:600;font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--au)}
+.h1{font-family:var(--se);font-weight:400;font-size:3.6rem;line-height:1.02;letter-spacing:-.01em}
+.h2{font-family:var(--se);font-weight:400;font-size:2.6rem;line-height:1.06}
+.h3{font-family:var(--se);font-weight:400;font-size:1.6rem;line-height:1.15}
+.h1 em,.h2 em,.h3 em{color:var(--au);font-style:italic}
+.p{font-size:1.02rem;color:var(--mt);max-width:34em}
+.p+.p{margin-top:.8em}
+.lead{font-family:var(--se);font-size:1.45rem;line-height:1.35;color:var(--cr)}
+.sp{letter-spacing:.42em;text-transform:uppercase;font-family:var(--se)}
+.rule{width:3.2rem;height:1px;background:var(--au);margin:1.2rem 0}
+.cap{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--mt)}
+.chip{display:inline-flex;align-items:center;gap:.5em;border:1px solid var(--ln);border-radius:99px;padding:.45em 1.1em;font-size:.78rem;letter-spacing:.06em}
+.cta{display:inline-flex;align-items:center;gap:.8em;background:var(--cr);color:var(--g);border-radius:99px;padding:.85em 1.7em;font-weight:600;font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;transition:transform .3s,background .3s}
+.cta:hover{transform:translateY(-2px);background:#fff}
+.cta.gh{background:transparent;color:var(--cr);border:1px solid var(--ln)}
+.lg{background-repeat:no-repeat;background-position:center;background-size:contain}
+
+/* ===== estrutura das telas ===== */
+.slide{position:relative;width:100%;min-height:var(--vh);overflow:hidden;background:var(--g)}
+.js body{overflow:hidden;height:var(--vh);touch-action:none}
+.js .slide{position:fixed;inset:0;height:var(--vh);min-height:0;opacity:0;visibility:hidden;transition:opacity 1.1s cubic-bezier(.4,0,.2,1),visibility 0s 1.1s,transform 1.4s cubic-bezier(.2,.7,.1,1);transform:scale(1.04);z-index:1}
+.js .slide.near{visibility:visible}
+.js .slide.on{opacity:1;visibility:visible;transform:none;transition:opacity 1.1s cubic-bezier(.4,0,.2,1),visibility 0s,transform 1.4s cubic-bezier(.2,.7,.1,1);z-index:2}
+html:not(.js) body{scroll-snap-type:y proximity}
+html:not(.js) .slide{scroll-snap-align:start}
+
+/* animações */
+@keyframes kb{from{transform:scale(1.14) translate3d(1.5%,1%,0)}to{transform:scale(1) translate3d(0,0,0)}}
+@keyframes kb2{from{transform:scale(1) translate3d(0,0,0)}to{transform:scale(1.12) translate3d(-2%,-1%,0)}}
+.kb{animation:kb 22s cubic-bezier(.2,.6,.3,1) both;will-change:transform}
+.kb2{animation:kb2 26s linear both}
+.js .slide:not(.on) .kb,.js .slide:not(.on) .kb2{animation:none}
+.rv{transition:opacity 1.2s cubic-bezier(.2,.7,.2,1),transform 1.2s cubic-bezier(.2,.7,.2,1),clip-path 1.4s cubic-bezier(.6,0,.2,1);transition-delay:calc(var(--d,0) * 1s + .35s)}
+.js .slide:not(.on) .rv{opacity:0;transform:translate3d(0,2.2rem,0);transition-delay:0s;transition-duration:.4s}
+.js .slide:not(.on) .rv.rl{transform:translate3d(-2.5rem,0,0)}
+.js .slide:not(.on) .rv.rs{transform:scale(.92)}
+.js .slide:not(.on) .rv.wipe{clip-path:inset(0 100% 0 0);transform:none;opacity:1}
+.wipe{clip-path:inset(0 0 0 0)}
+.js .slide:not(.on) .ln-grow{transform:scaleX(0)}
+.ln-grow{transform-origin:left;transition:transform 1.6s cubic-bezier(.6,0,.2,1) .6s}
+
+/* sombras */
+.sh-b{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,22,16,.55) 0%,rgba(10,22,16,0) 30%,rgba(10,22,16,0) 50%,rgba(10,22,16,.85) 100%)}
+.sh-l{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(12,26,19,.88) 0%,rgba(12,26,19,.55) 38%,rgba(12,26,19,0) 70%)}
+.sh-all{position:absolute;inset:0;z-index:1;background:rgba(14,30,22,.62)}
+
+/* topo fixo */
+.brand{position:fixed;z-index:50;top:max(1.4rem,env(safe-area-inset-top));left:2.4rem;width:8.5rem;height:3.4rem;opacity:.92;pointer-events:none;transition:opacity .6s}
+.top-r{position:fixed;z-index:50;top:max(1.5rem,env(safe-area-inset-top));right:2.2rem;display:flex;gap:.6rem;align-items:center}
+.ib{width:2.6rem;height:2.6rem;border-radius:50%;border:1px solid var(--ln);display:grid;place-items:center;background:rgba(20,41,31,.35);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:background .3s}
+.ib:hover{background:rgba(239,231,214,.16)}
+.ib svg{width:44%;height:44%;stroke:var(--cr);fill:none;stroke-width:1.6}
+.nav{position:fixed;z-index:50;bottom:max(1.4rem,env(safe-area-inset-bottom));right:2.2rem;display:flex;align-items:center;gap:.8rem}
+.cnt{font-family:var(--se);font-size:1.05rem;letter-spacing:.08em;min-width:4.2em;text-align:center}
+.cnt b{font-weight:400;color:var(--au)}
+.sec{position:fixed;z-index:50;bottom:max(1.9rem,calc(env(safe-area-inset-bottom) + .5rem));left:2.4rem;font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mt)}
+.bar{position:fixed;z-index:51;left:0;top:0;height:2px;background:var(--au);width:0;transition:width .9s cubic-bezier(.4,0,.2,1)}
+html:not(.js) .brand,html:not(.js) .top-r,html:not(.js) .nav,html:not(.js) .sec,html:not(.js) .bar,html:not(.js) .menu,html:not(.js) .hint{display:none}
+.hide-ui .brand{opacity:0}
+.last .sec,.hide-ui .sec{opacity:0}
+
+/* menu índice */
+.menu{position:fixed;inset:0;z-index:80;background:rgba(14,28,21,.94);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);opacity:0;visibility:hidden;transition:opacity .5s,visibility 0s .5s;overflow:auto;padding:6rem 4rem 4rem}
+.menu.op{opacity:1;visibility:visible;transition:opacity .5s}
+.menu h4{font-family:var(--se);font-weight:400;font-size:2rem;margin-bottom:1.6rem}
+.mg{display:grid;grid-template-columns:repeat(auto-fill,minmax(13rem,1fr));gap:1rem}
+.mi{text-align:left;border:1px solid var(--ln);border-radius:.8rem;overflow:hidden;transition:border-color .3s,transform .3s;background:rgba(255,255,255,.02)}
+.mi:hover,.mi.cur{border-color:var(--au);transform:translateY(-2px)}
+.mi .th{height:6.2rem;background-size:cover;background-position:center;background-color:var(--g2)}
+.mi span{display:block;padding:.6rem .8rem;font-size:.78rem}
+.mi span b{color:var(--au);font-weight:600;margin-right:.5em}
+
+/* ===== 01 capa ===== */
+.s-cover .bg2{opacity:0;animation:sun 9s ease-in-out 1.2s forwards}
+.js .s-cover:not(.on) .bg2{animation:none}
+@keyframes sun{to{opacity:1}}
+.s-cover .sh{position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse at 50% 45%,rgba(40,28,14,.38) 0%,rgba(30,24,14,.2) 45%,rgba(12,22,16,.55) 100%)}
+.s-cover .kick,.s-cover .sub{text-shadow:0 1px 14px rgba(40,25,10,.55)}
+.s-cover .ct{height:var(--vh);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem}
+.s-cover .lgm{width:min(34rem,74vw);aspect-ratio:2176/747;filter:drop-shadow(0 .3rem 1.4rem rgba(60,30,10,.35))}
+.s-cover .lgm.rv{transition-duration:2.4s}
+.js .s-cover:not(.on) .lgm.rv{clip-path:inset(0 0 100% 0);transform:translate3d(0,1rem,0)}
+.s-cover .lgm{clip-path:inset(0 0 0 0)}
+.s-cover .kick{color:var(--cr);margin-top:1.6rem;font-size:.8rem;letter-spacing:.5em}
+.s-cover .sub{margin-top:.8rem;font-family:var(--se);font-style:italic;font-size:1.25rem;color:var(--cr);opacity:.9}
+.s-cover .cta{margin-top:2.6rem}
+.hint{position:absolute;z-index:3;bottom:2.4rem;left:50%;transform:translateX(-50%);font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;color:var(--cr);opacity:.7;display:flex;flex-direction:column;align-items:center;gap:.6rem}
+.hint i{display:block;width:1px;height:2.6rem;background:linear-gradient(var(--cr),transparent);animation:drip 2.2s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* layout padrão de texto sobre imagem */
+.ov{position:absolute;z-index:3;left:max(4.5rem,6vw);bottom:12vh;max-width:min(40rem,48vw)}
+.ov.top{bottom:auto;top:18vh}
+.ov .h1,.ov .h2{margin:.7rem 0 1rem}
+
+/* ===== split: imagem + painel ===== */
+.split{display:grid;grid-template-columns:1.65fr 1fr;height:var(--vh)}
+.split.rev{grid-template-columns:1fr 1.65fr}
+.split .im{position:relative;overflow:hidden}
+.split .pn{background:var(--g);padding:7rem 3.4rem 6rem;display:flex;flex-direction:column;justify-content:center;position:relative}
+.split.rev .im{order:2}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:1.3rem 1.6rem;margin-top:1.8rem;border-top:1px solid var(--ln);padding-top:1.6rem}
+.spec .v{font-family:var(--se);font-size:1.9rem;line-height:1;color:var(--cr)}
+.spec .v small{font-size:.55em;margin-left:.15em;color:var(--mt)}
+.spec .l{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mt);margin-top:.45rem}
+.feat{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.6rem}
+.tag{position:absolute;z-index:3;left:2.4rem;bottom:2.2rem;font-family:var(--se);font-size:1.7rem;letter-spacing:.5em;text-transform:uppercase;color:var(--cr);text-shadow:0 2px 20px rgba(0,0,0,.4)}
+
+/* ===== aberturas de tipologia ===== */
+.open .ct{position:absolute;z-index:3;inset:auto 0 0 0;padding:0 max(4.5rem,6vw) 13vh}
+.open .num{font-family:var(--se);font-size:9rem;line-height:.8;color:var(--au);opacity:.95}
+.open .ttl{font-family:var(--se);font-size:4.4rem;line-height:1;letter-spacing:.32em;text-transform:uppercase;margin-top:1rem}
+.open .row{display:flex;gap:3rem;align-items:flex-end;flex-wrap:wrap}
+.open .meta{display:flex;gap:2.6rem;margin-top:1.6rem;flex-wrap:wrap}
+.open .meta div{border-left:1px solid var(--au);padding-left:1rem}
+.open .meta b{display:block;font-family:var(--se);font-weight:400;font-size:1.7rem}
+.open .meta span{font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--mt)}
+
+/* ===== planta ===== */
+.plan-s{display:grid;grid-template-columns:1.45fr 1fr;height:var(--vh)}
+.plan-s .pl{background:var(--cr2);position:relative;display:flex;align-items:center;justify-content:center;padding:6rem 3rem 4.5rem;overflow:hidden}
+.plan-s .pl:before{content:"";position:absolute;left:8%;right:20%;top:24%;bottom:10%;background:var(--g2);border-radius:2.4rem;opacity:.95}
+.plan{position:relative;z-index:2;width:100%;height:100%;cursor:zoom-in;overflow:hidden;border-radius:.6rem;touch-action:manipulation}
+.plan .bg{background-size:contain;transition:transform .7s cubic-bezier(.2,.7,.2,1);filter:drop-shadow(0 1.4rem 1.8rem rgba(20,30,25,.35))}
+.plan.zoom{cursor:zoom-out}
+.plan.zoom .bg{transform:scale(2.3)}
+.zhint{position:absolute;z-index:4;bottom:1.6rem;left:50%;transform:translateX(-50%);color:var(--g);background:rgba(239,231,214,.9);border-radius:99px;padding:.45em 1.2em;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;white-space:nowrap;pointer-events:none}
+html:not(.js) .zhint{display:none}
+.plan-s .pn{background:var(--g);padding:7rem 3.4rem 6rem;display:flex;flex-direction:column;justify-content:center}
+.amb{margin-top:1.4rem;border-top:1px solid var(--ln)}
+.amb li{list-style:none;display:flex;justify-content:space-between;gap:1rem;padding:.62rem 0;border-bottom:1px solid var(--ln);font-size:.92rem}
+.amb li span:last-child{font-family:var(--se);font-size:1.1rem;color:var(--au)}
+
+/* ===== galeria ===== */
+.gal{position:absolute;inset:0}
+.gal .g{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease;overflow:hidden}
+.gal .g.a{opacity:1}
+.gal .g .bg{transform:scale(1.08);transition:transform 8s linear}
+.gal .g.a .bg{transform:scale(1)}
+.gcap{position:absolute;z-index:4;left:max(4.5rem,6vw);bottom:12vh;max-width:36rem}
+.gcap .h2{margin-top:.5rem}
+.gcap .t{transition:opacity .8s}
+.thumbs{position:absolute;z-index:4;right:max(4.5rem,6vw);bottom:12vh;display:flex;gap:.7rem}
+.thumbs button{width:6.4rem;height:4rem;border-radius:.45rem;background-size:cover;background-position:center;border:1px solid rgba(255,255,255,.3);opacity:.6;transition:all .4s;position:relative;overflow:hidden}
+.thumbs button.a{opacity:1;border-color:var(--au);transform:translateY(-.3rem)}
+.thumbs button i{position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--au)}
+.thumbs button.a i{animation:tbar 6s linear forwards}
+@keyframes tbar{to{width:100%}}
+html:not(.js) .gal{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(40%,1fr));gap:4px;min-height:var(--vh)}
+html:not(.js) .gal .g{position:relative;opacity:1;min-height:45vh}
+html:not(.js) .thumbs{display:none}
+html:not(.js) .s-gal .sh-b{display:none}
+html:not(.js) .gcap{position:relative;left:auto;bottom:auto;padding:3rem max(2rem,6vw);max-width:none}
+
+/* ===== implantação ===== */
+.s-impl{background:#1a2a1c}
+.stage{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:max(100vw,calc(var(--vh) * 1.6));aspect-ratio:5000/3126}
+.stage .bg{background-size:100% 100%}
+.hs{position:absolute;z-index:4;transform:translate(-50%,-50%);width:3.2rem;height:3.2rem;border-radius:50%;display:grid;place-items:center}
+.hs:before,.hs:after{content:"";position:absolute;inset:0;border-radius:50%;border:1.5px solid var(--cr)}
+.hs:after{animation:pulse 2.4s ease-out infinite}
+.hs b{width:1rem;height:1rem;border-radius:50%;background:var(--cr);box-shadow:0 0 0 .3rem rgba(201,164,108,.6);transition:transform .3s}
+.hs:hover b,.hs.a b{transform:scale(1.4);background:var(--au)}
+@keyframes pulse{from{transform:scale(1);opacity:.9}to{transform:scale(2.4);opacity:0}}
+.hs .lb{position:absolute;left:50%;top:115%;transform:translateX(-50%);white-space:nowrap;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;background:rgba(20,41,31,.82);padding:.35em .9em;border-radius:99px;pointer-events:none}
+.icard{position:absolute;z-index:6;left:max(4.5rem,6vw);top:16vh;width:min(25rem,80vw);background:rgba(20,41,31,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--ln);border-radius:1.2rem;padding:2rem 2.2rem}
+.icard .h2{margin:.5rem 0 .6rem}
+.icard .ip{display:none}
+.icard .ip.a{display:block;animation:fadeup .6s both}
+@keyframes fadeup{from{opacity:0;transform:translateY(.8rem)}to{opacity:1;transform:none}}
+html:not(.js) .icard .ip{display:block;margin-bottom:1.4rem}
+.legend{position:absolute;z-index:5;right:max(4.5rem,6vw);bottom:12vh;display:flex;flex-direction:column;gap:.5rem;align-items:flex-end}
+
+/* ===== números ===== */
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:2.4rem 2rem;margin-top:3rem}
+.nm{border-top:1px solid var(--ln);padding-top:1.2rem}
+.nm .v{font-family:var(--se);font-size:3.4rem;line-height:1}
+.nm .v small{font-size:.42em;color:var(--mt);margin-left:.2em}
+.nm .l{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mt);margin-top:.6rem}
+.full-ct{position:absolute;z-index:3;inset:0;display:flex;flex-direction:column;justify-content:center;padding:7.5rem max(4.5rem,6vw) 6rem}
+
+/* ===== três escalas ===== */
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:2.6rem}
+.c3{position:relative;border-radius:1.2rem;overflow:hidden;height:44vh;text-align:left;border:1px solid var(--ln);transition:transform .6s cubic-bezier(.2,.7,.2,1),border-color .4s}
+.c3:hover{transform:translateY(-.6rem);border-color:var(--au)}
+.c3 .bg{transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.c3:hover .bg{transform:scale(1.07)}
+.c3:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,22,16,0) 35%,rgba(10,22,16,.9));z-index:1}
+.c3 .tx{position:absolute;z-index:2;left:1.6rem;right:1.6rem;bottom:1.6rem}
+.c3 .tx .h3{font-size:1.9rem;margin:.3rem 0 .4rem}
+.c3 .tx p{font-size:.86rem;color:var(--mt)}
+.c3 .go{display:inline-block;margin-top:.9rem;font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;color:var(--au);font-weight:600}
+
+/* ===== comparador ===== */
+.cmp{display:grid;grid-template-columns:12rem repeat(3,1fr);margin-top:2.2rem;border-top:1px solid var(--ln)}
+.cmp>div{padding:.85rem 1rem;border-bottom:1px solid var(--ln);display:flex;align-items:center;transition:background .5s,color .5s}
+.cmp .rh{font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mt)}
+.cmp .hd{flex-direction:column;align-items:flex-start;gap:.3rem;cursor:pointer}
+.cmp .hd b{font-family:var(--se);font-weight:400;font-size:1.6rem;line-height:1}
+.cmp .hd span{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--au)}
+.cmp .c{font-family:var(--se);font-size:1.15rem}
+.cmp .hl{background:rgba(201,164,108,.12)}
+.barw{width:100%;height:.5rem;background:rgba(239,231,214,.1);border-radius:99px;overflow:hidden;margin-top:.4rem}
+.barw i{display:block;height:100%;background:linear-gradient(90deg,var(--au),#e2c58f);border-radius:99px;width:var(--w);transition:width 1.6s cubic-bezier(.2,.7,.2,1) .8s}
+.js .slide:not(.on) .barw i{width:0}
+.cmp .ar{flex-direction:column;align-items:flex-start}
+
+/* ===== dia / noite ===== */
+.dn{position:absolute;inset:0}
+.dn .bg{transition:opacity 2.2s ease,transform 9s linear;transform:scale(1.06)}
+.dn .night{opacity:0}
+.dn.nt .night{opacity:1;transform:scale(1)}
+.dn:not(.nt) .bg:first-child{transform:scale(1)}
+.dnb{display:flex;gap:.6rem;margin-top:1.4rem}
+.dnb .chip{background:rgba(20,41,31,.5);transition:all .4s}
+.dnb .chip.a{background:var(--cr);color:var(--g);border-color:var(--cr)}
+html:not(.js) .dnb{display:none}
+.dn .hd{position:absolute;z-index:4;top:0;bottom:0;left:var(--p);width:2px;background:var(--cr);transform:translateX(-1px)}
+.dn .hd:after{content:"◂ ▸";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:3.4rem;height:3.4rem;border-radius:50%;background:var(--cr);color:var(--g);display:grid;place-items:center;font-size:.8rem;letter-spacing:.2em;box-shadow:0 .4rem 1.4rem rgba(0,0,0,.3)}
+.dn input{position:absolute;z-index:5;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;-webkit-appearance:none;appearance:none;margin:0}
+.dnl{position:absolute;z-index:4;top:50%;font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;font-weight:600;background:rgba(20,41,31,.7);padding:.4em 1em;border-radius:99px;pointer-events:none}
+html:not(.js) .dn .hd:after{display:none}
+
+/* ===== mosaicos ===== */
+.mos{position:absolute;inset:0;display:grid;gap:6px;background:var(--g)}
+.mos>div{position:relative;overflow:hidden}
+.mos .bg{transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.mos>div:hover .bg{transform:scale(1.05)}
+.lbl{position:absolute;z-index:3;left:1.6rem;bottom:1.4rem;font-size:.64rem;letter-spacing:.28em;text-transform:uppercase;font-weight:600;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+
+/* ===== pagamento ===== */
+.pay{display:flex;height:4.6rem;border-radius:.8rem;overflow:hidden;margin-top:2.6rem;border:1px solid var(--ln)}
+.pay>div{position:relative;display:flex;flex-direction:column;justify-content:center;padding:0 1.4rem;transition:flex-grow 1.8s cubic-bezier(.2,.7,.2,1) .7s;flex-basis:0}
+.js .slide:not(.on) .pay>div{flex-grow:1!important}
+.pay b{font-family:var(--se);font-weight:400;font-size:1.8rem;line-height:1}
+.pay span{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;opacity:.85}
+.tl{position:relative;margin-top:3rem;height:5rem}
+.tl .ln{position:absolute;left:0;right:0;top:1.1rem;height:1px;background:var(--ln)}
+.tl .ln i{position:absolute;inset:0;background:var(--au)}
+.tl .pt{position:absolute;top:0;transform:translateX(-50%);text-align:center;width:7rem}
+.tl .pt:before{content:"";display:block;width:.9rem;height:.9rem;border-radius:50%;background:var(--g);border:2px solid var(--au);margin:.65rem auto .7rem}
+.tl .pt b{display:block;font-family:var(--se);font-weight:400;font-size:1.05rem}
+.tl .pt span{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mt)}
+
+/* ===== parceiros ===== */
+.parc{display:grid;grid-template-columns:repeat(5,1fr);margin-top:3rem;border-top:1px solid var(--ln)}
+.parc>div{padding:1.6rem 1.2rem 0;border-right:1px solid var(--ln);display:flex;flex-direction:column;align-items:center;gap:1.4rem;text-align:center}
+.parc>div:last-child{border-right:0}
+.parc .lg{width:100%;height:6.5rem}
+.parc .k{font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--au);font-weight:600}
+
+/* ===== final ===== */
+.s-end .ct{height:var(--vh);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem}
+.s-end .lgf{width:min(26rem,70vw);aspect-ratio:2176/881}
+.s-end .disc{position:absolute;z-index:3;bottom:5.2rem;left:50%;transform:translateX(-50%);width:min(70rem,88vw);font-size:.54rem;line-height:1.5;color:rgba(239,231,214,.5);text-align:center}
+
+/* vídeo */
+.s-film video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0;transition:opacity 1.2s}
+.s-film video.ok{opacity:1}
+.play{position:absolute;z-index:5;right:max(4.5rem,6vw);bottom:12vh}
+html:not(.js) .play{display:none}
+
+/* ===== retrato / celulares ===== */
+@media (max-aspect-ratio:1/1){
+ html{font-size:clamp(13px,3.7vw,24px)}
+ .brand{left:1.2rem;width:6.4rem;height:2.6rem}
+ .top-r{right:1rem}.nav{right:1rem}.sec{left:1.2rem;max-width:45vw}
+ .h1{font-size:2.5rem}.h2{font-size:2rem}
+ .ov,.gcap{left:1.4rem;right:1.4rem;max-width:none;bottom:13vh}
+ .ov.top{top:14vh}
+ .split,.split.rev,.plan-s{grid-template-columns:1fr;grid-template-rows:46% 54%}
+ .split.rev .im{order:0}
+ .split .pn,.plan-s .pn{padding:1.6rem 1.4rem 5.6rem;justify-content:flex-start;overflow:auto}
+ .plan-s .pl{padding:4.6rem 1rem 1rem}
+ .tag{font-size:1.1rem;left:1.2rem;bottom:1rem}
+ .specs{gap:.9rem 1rem;margin-top:1rem;padding-top:1rem}.spec .v{font-size:1.5rem}
+ .open .num{font-size:5rem}.open .ttl{font-size:2.3rem;letter-spacing:.2em}
+ .open .ct{padding:0 1.4rem 14vh}.open .meta{gap:1.2rem}
+ .full-ct{padding:6.2rem 1.4rem 6rem;justify-content:flex-start!important;overflow:auto;-webkit-overflow-scrolling:touch}
+ .split .pn,.plan-s .pn{-webkit-overflow-scrolling:touch}
+ .nums{grid-template-columns:repeat(2,1fr)!important;gap:1.2rem;margin-top:1.4rem}
+ .mos~.sh-b{background:rgba(10,22,16,.6)!important}
+ .nm .h3{font-size:1.25rem}.nm .v{font-size:2.3rem}
+ .cards3{grid-template-columns:1fr;gap:.7rem;margin-top:1.2rem}
+ .c3{aspect-ratio:auto;height:19vh}
+ .c3 .tx{left:1rem;bottom:.9rem}.c3 .tx .h3{font-size:1.4rem}.c3 .tx p{display:none}.c3 .go{margin-top:.2rem}
+ .thumbs{left:1.4rem;right:auto;bottom:6.2rem}.thumbs button{width:4.2rem;height:2.8rem}
+ .gcap{bottom:22vh}
+ .cmp{grid-template-columns:6.6rem repeat(3,1fr);margin-top:1rem}
+ .cmp>div{padding:.55rem .4rem}.cmp .hd b{font-size:1.05rem}.cmp .c{font-size:.92rem}.cmp .rh{font-size:.5rem;letter-spacing:.12em}
+ .parc{grid-template-columns:1fr 1fr;row-gap:1.2rem}.parc>div{border-right:0}.parc .lg{height:4rem}
+ .pay{height:4rem}.pay>div{padding:0 .6rem}.pay b{font-size:1.25rem}.pay span{font-size:.48rem;letter-spacing:.08em}
+ .tl .pt{width:4.4rem}.tl .pt b{font-size:.85rem}.tl .pt span{font-size:.45rem}
+ .icard{left:1rem;right:1rem;width:auto;top:auto;bottom:6rem;padding:1.2rem 1.4rem}
+ .icard .p{font-size:.88rem}
+ .legend{display:none}
+ .stage{width:calc(var(--vh) * 1.6);left:38%}
+ .hs .lb{font-size:.52rem}
+ .menu{padding:5rem 1.2rem 2rem}.mg{grid-template-columns:1fr 1fr}
+ .mos{grid-template-columns:1fr!important;grid-template-rows:repeat(var(--n),1fr)!important}
+ .mos>div{grid-column:auto!important;grid-row:auto!important}
+ .lead{font-size:1.15rem}
+ .hint{bottom:6.5rem}
+ .play{right:1.4rem;bottom:auto;top:5.2rem}
+ .s-end .disc{font-size:.46rem;bottom:.8rem}
+ html:not(.js) .slide{min-height:auto}
+ html:not(.js) .split .im,html:not(.js) .plan-s .pl{min-height:55vh}
+ html:not(.js) .split,html:not(.js) .plan-s{height:auto;grid-template-rows:auto}
+}
+html:not(.js) .open,html:not(.js) .s-cover,html:not(.js) .s-film,html:not(.js) .s-end,html:not(.js) .s-full{min-height:var(--vh)}
+@media (prefers-reduced-motion:reduce){.kb,.kb2{animation:none}}
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<div class="brand lg i-logo_mark"></div>
+<div class="top-r">
+ <button class="ib" id="fsb" aria-label="Tela cheia"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+ <button class="ib" id="mnb" aria-label="Índice"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></button>
+</div>
+<div class="sec" id="sec"></div>
+<div class="nav">
+ <button class="ib" id="pv" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+ <div class="cnt" id="cnt"><b>01</b> / 30</div>
+ <button class="ib" id="nx" aria-label="Próxima"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+</div>
+<div class="menu" id="menu"><h4>Índice da <em>apresentação</em></h4><div class="mg" id="mg"></div></div>
+
+<main id="deck">
+
+<!-- 01 CAPA -->
+<section class="slide s-cover" data-sec="Villaggio Toscano" data-th="i-cover_b">
+ <div class="bg i-cover_a kb"></div>
+ <div class="bg bg2 i-cover_b kb"></div>
+ <div class="sh"></div>
+ <div class="ct">
+  <div class="lgm lg i-logo_mark rv"></div>
+  <p class="kick rv" style="--d:.9">Hotel &nbsp;|&nbsp; Residência</p>
+  <p class="sub rv" style="--d:1.3">Cabanas, casas e mansões entre os vales de Chapecó</p>
+  <button class="cta rv" style="--d:1.8" data-go="+1">Conhecer as residências</button>
+ </div>
+ <div class="hint"><i></i>deslize</div>
+</section>
+
+<!-- 02 MANIFESTO -->
+<section class="slide s-full" data-sec="Manifesto" data-th="i-fonte">
+ <div class="bg i-fonte kb"></div><div class="sh-l"></div>
+ <div class="ov top">
+  <p class="kick rv">Manifesto</p>
+  <h1 class="h1 rv" style="--d:.2">Há lugares que não pedem pressa.<br><em>Pedem presença.</em></h1>
+  <p class="p rv" style="--d:.5">O Villaggio Toscano nasce para desacelerar o tempo e devolver à vida um ritmo mais leve. Inspirado na essência italiana e nas vilas da Toscana, reúne arquitetura acolhedora, natureza, hotelaria e experiências que permanecem.</p>
+  <p class="p rv" style="--d:.7">Entre vales, cachoeiras, gastronomia, vinhos e contemplação, cria um novo destino para Chapecó e para o oeste catarinense.</p>
+ </div>
+</section>
+
+<!-- 03 FILME -->
+<section class="slide s-film" data-sec="O território" data-th="i-poster">
+ <div class="bg i-poster"></div>
+ <video id="film" muted loop playsinline webkit-playsinline preload="none"></video>
+ <div class="sh-b" style="z-index:1"></div>
+ <div class="ov">
+  <p class="kick rv">O território</p>
+  <h2 class="h1 rv" style="--d:.2">Natureza <em>preservada</em></h2>
+  <p class="p rv" style="--d:.4">São cerca de 190 mil m², dos quais mais de 100 mil m² permanecem preservados: três cachoeiras, duas grandes nascentes, lago natural e trilhas entre a mata.</p>
+ </div>
+ <button class="chip play" id="playb" style="background:rgba(20,41,31,.5)">❚❚ &nbsp;Pausar filme</button>
+</section>
+
+<!-- 04 DESTINO -->
+<section class="slide" data-sec="O destino" data-th="i-rota">
+ <div class="split rev">
+  <div class="im"><div class="bg i-rota kb2"></div></div>
+  <div class="pn">
+   <p class="kick rv">O destino</p>
+   <h2 class="h2 rv" style="--d:.15">A Rota dos Vales recebe um destino <em>jamais visto</em> na região</h2>
+   <p class="p rv" style="--d:.3">No eixo da Rota dos Vales, a poucos minutos do centro de Chapecó e do aeroporto, com acesso direto pela rodovia — entre vinícola, cervejaria, queijaria, café colonial e o novo autódromo internacional.</p>
+   <ul class="amb rv" style="--d:.5">
+    <li><span>Autódromo internacional</span><span><b data-count="9">9</b> km</span></li>
+    <li><span>Porto Goio-En</span><span><b data-count="10">10</b> km</span></li>
+    <li><span>Aeroporto de Chapecó</span><span><b data-count="15">15</b> km</span></li>
+    <li><span>Centro · Catedral Santo Antônio</span><span><b data-count="18">18</b> km</span></li>
+    <li><span>Arena Condá</span><span><b data-count="19">19</b> km</span></li>
+   </ul>
+  </div>
+ </div>
+</section>
+
+<!-- 05 FICHA -->
+<section class="slide s-full" data-sec="O empreendimento" data-th="i-mata">
+ <div class="bg i-mata kb"></div><div class="sh-all"></div>
+ <div class="full-ct">
+  <p class="kick rv">Ficha técnica</p>
+  <h2 class="h1 rv" style="--d:.15">18,9 hectares de vale,<br><em>uma vila desenhada pela paisagem</em></h2>
+  <div class="nums">
+   <div class="nm rv" style="--d:.3"><div class="v"><span data-count="190000">190.000</span><small>m²</small></div><div class="l">Área total</div></div>
+   <div class="nm rv" style="--d:.4"><div class="v">+<span data-count="100000">100.000</span><small>m²</small></div><div class="l">Natureza preservada</div></div>
+   <div class="nm rv" style="--d:.5"><div class="v"><span data-count="3">3</span></div><div class="l">Cachoeiras · 2 nascentes · lago</div></div>
+   <div class="nm rv" style="--d:.6"><div class="v"><span data-count="160">160</span></div><div class="l">Unidades habitacionais</div></div>
+   <div class="nm rv" style="--d:.7"><div class="v"><span data-count="30">30</span></div><div class="l">Cabanas Collina</div></div>
+   <div class="nm rv" style="--d:.8"><div class="v"><span data-count="14">14</span></div><div class="l">Casas Valle</div></div>
+   <div class="nm rv" style="--d:.9"><div class="v"><span data-count="11">11</span></div><div class="l">Mansões com piscina</div></div>
+   <div class="nm rv" style="--d:1"><div class="v"><span data-count="105">105</span></div><div class="l">Suítes de hotel</div></div>
+  </div>
+ </div>
+</section>
+
+<!-- 06 IMPLANTAÇÃO -->
+<section class="slide s-impl" data-sec="Implantação" data-th="i-implantacao">
+ <div class="stage" id="stage">
+  <div class="bg i-implantacao"></div>
+  <button class="hs" style="left:26%;top:52%" data-ip="0"><b></b><span class="lb">Hotel</span></button>
+  <button class="hs" style="left:56%;top:77%" data-ip="1"><b></b><span class="lb">Cabanas</span></button>
+  <button class="hs" style="left:77.5%;top:40%" data-ip="2"><b></b><span class="lb">Casas</span></button>
+  <button class="hs" style="left:54%;top:30%" data-ip="3"><b></b><span class="lb">Mansões</span></button>
+ </div>
+ <div class="icard rv rl">
+  <p class="kick">A implantação · toque nos pontos</p>
+  <div class="ip a"><h3 class="h2">O villaggio, <em>platô a platô</em></h3><p class="p">A implantação acompanha as curvas do terreno: o hotel e as praças na chegada, as cabanas voltadas à paisagem, as casas nos platôs intermediários e as mansões abertas para o vale.</p></div>
+  <div class="ip"><h3 class="h2">Hotel <em>&amp; praças</em></h3><p class="p">Pórtico, recepção, restaurante, spa, eventos e as praças da Fonte e das Oliveiras — a estrutura completa de hospitalidade a poucos passos de cada residência.</p></div>
+  <div class="ip"><h3 class="h2">30 Cabanas <em>Collina</em></h3><p class="p">Fileiras voltadas à paisagem, junto à vida da vila. O refúgio essencial, com lareira e varanda para o vale.</p><button class="cta gh" style="margin-top:1rem" data-go="8">Ver cabanas →</button></div>
+  <div class="ip"><h3 class="h2">14 Casas <em>Valle</em></h3><p class="p">Nos platôs intermediários, em pavimento único, com duas suítes e varanda integrada ao jardim.</p><button class="cta gh" style="margin-top:1rem" data-go="12">Ver casas →</button></div>
+  <div class="ip"><h3 class="h2">11 <em>Mansões</em></h3><p class="p">Nos platôs mais altos, com três suítes e piscina privativa abertas para o vale.</p><button class="cta gh" style="margin-top:1rem" data-go="16">Ver mansões →</button></div>
+ </div>
+</section>
+
+<!-- 07 TRÊS ESCALAS -->
+<section class="slide s-full" data-sec="As residências" data-th="i-aereo_vila">
+ <div class="bg i-aereo_vila kb"></div><div class="sh-all" style="background:rgba(14,30,22,.72)"></div>
+ <div class="full-ct">
+  <p class="kick rv">As residências</p>
+  <h2 class="h1 rv" style="--d:.15">Três escalas de vida <em>para o mesmo refúgio</em></h2>
+  <p class="p rv" style="--d:.3">Cinquenta e cinco endereços entre os platôs. Uma mesma estrutura de hotelaria e natureza — do refúgio a dois à casa que reúne a família inteira.</p>
+  <div class="cards3">
+   <button class="c3 rv" style="--d:.4" data-go="8"><div class="bg i-cab_ext"></div><div class="tx"><p class="kick">30 unidades</p><h3 class="h3">Cabanas <em>Collina</em></h3><p>De 78,96 m² a 80,65 m² privativos — o refúgio essencial.</p><span class="go">Explorar →</span></div></button>
+   <button class="c3 rv" style="--d:.55" data-go="12"><div class="bg i-casa_ext"></div><div class="tx"><p class="kick">14 unidades</p><h3 class="h3">Casas <em>Valle</em></h3><p>169,32 m² privativos, duas suítes — a casa que reúne.</p><span class="go">Explorar →</span></div></button>
+   <button class="c3 rv" style="--d:.7" data-go="16"><div class="bg i-man_ext"></div><div class="tx"><p class="kick">11 unidades</p><h3 class="h3"><em>Mansões</em></h3><p>284,41 m² privativos, três suítes e piscina privativa.</p><span class="go">Explorar →</span></div></button>
+  </div>
+ </div>
+</section>
+
+<!-- 08 CABANAS ABERTURA -->
+<section class="slide open" data-sec="Cabanas Collina" data-th="i-cab_aereo">
+ <div class="bg i-cab_aereo kb"></div><div class="sh-b"></div>
+ <div class="ct">
+  <div class="row"><span class="num rv">I</span></div>
+  <h2 class="ttl rv wipe" style="--d:.2">Cabanas</h2>
+  <p class="lead rv" style="--d:.5"><em>O refúgio essencial</em> — chegar, acender a lareira e deixar o vale entrar.</p>
+  <div class="meta rv" style="--d:.7"><div><b>30</b><span>unidades</span></div><div><b>Collina Uno &amp; Due</b><span>tipologias</span></div><div><b>78,96 – 80,65 m²</b><span>área privativa</span></div></div>
+ </div>
+</section>
+
+<!-- 09 CABANA EXTERIOR -->
+<section class="slide" data-sec="Cabanas Collina" data-th="i-cab_ext">
+ <div class="split">
+  <div class="im"><div class="bg i-cab_ext kb"></div><div class="tag rv">Cabana Collina</div></div>
+  <div class="pn">
+   <p class="kick rv">Cabana Collina</p>
+   <h2 class="h2 rv" style="--d:.15">Pedra, vidro e a varanda <em>suspensa sobre o vale</em></h2>
+   <p class="p rv" style="--d:.3">A cabana é o formato mais direto de desaceleração: chegar, acender a lareira, abrir os panos de vidro e deixar o vale entrar. Um refúgio de uso frequente — perto o bastante para uma sexta-feira à tarde, reservado o bastante para parecer outro lugar.</p>
+   <div class="specs rv" style="--d:.5">
+    <div class="spec"><div class="v">80,65<small>m²</small></div><div class="l">Área privativa (até)</div></div>
+    <div class="spec"><div class="v">32,99<small>m²</small></div><div class="l">Estar e descanso</div></div>
+    <div class="spec"><div class="v">10,20<small>m²</small></div><div class="l">Varanda para o vale</div></div>
+    <div class="spec"><div class="v">King</div><div class="l">Cama · lareira a lenha</div></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- 10 CABANA PLANTA -->
+<section class="slide" data-sec="Cabanas Collina" data-th="i-cab_plan">
+ <div class="plan-s">
+  <div class="pl"><div class="plan rv rs" data-noswipe><div class="bg i-cab_plan"></div></div><div class="zhint">Toque para ampliar</div></div>
+  <div class="pn">
+   <p class="kick rv">Planta humanizada · Collina</p>
+   <h2 class="h2 rv" style="--d:.15">A cabana <em>por dentro</em></h2>
+   <p class="p rv" style="--d:.3">Um único ambiente, bem resolvido: cama king size, estar, cozinha equipada e lareira a lenha abertos para a varanda, com banho completo. Tudo o que um refúgio precisa — e nada que tire a atenção do vale.</p>
+   <ul class="amb rv" style="--d:.45">
+    <li><span>Área privativa</span><span>78,96 a 80,65 m²</span></li>
+    <li><span>Estar e descanso contínuos</span><span>32,99 m²</span></li>
+    <li><span>Varanda voltada ao vale</span><span>10,20 m²</span></li>
+    <li><span>Lareira a lenha · cozinha equipada</span><span>✓</span></li>
+   </ul>
+  </div>
+ </div>
+</section>
+
+<!-- 11 CABANA GALERIA -->
+<section class="slide s-gal" data-sec="Cabanas Collina" data-th="i-cab_lareira">
+ <div class="gal">
+  <div class="g a" data-k="Estar" data-t="Estar e mesa junto ao vidro"><div class="bg i-cab_estar"></div></div>
+  <div class="g" data-k="Lareira" data-t="Lareira, pedra e madeira"><div class="bg i-cab_lareira"></div></div>
+  <div class="g" data-k="Descanso" data-t="O descanso, aberto para a paisagem"><div class="bg i-cab_quarto"></div></div>
+ </div>
+ <div class="sh-b"></div>
+ <div class="gcap"><p class="kick rv">Cabana Collina · <span class="k">Estar</span></p><h2 class="h2 rv t" style="--d:.15">Estar e mesa junto ao vidro</h2></div>
+ <div class="thumbs rv" style="--d:.4"></div>
+</section>
+
+<!-- 12 CASAS ABERTURA -->
+<section class="slide open" data-sec="Casas Valle" data-th="i-casa_aereo">
+ <div class="bg i-casa_aereo kb"></div><div class="sh-b"></div>
+ <div class="ct">
+  <div class="row"><span class="num rv">II</span></div>
+  <h2 class="ttl rv wipe" style="--d:.2">Casas</h2>
+  <p class="lead rv" style="--d:.5"><em>A casa que reúne</em> — filhos, netos e amigos à mesma mesa.</p>
+  <div class="meta rv" style="--d:.7"><div><b>14</b><span>unidades</span></div><div><b>Casa Valle</b><span>tipologia</span></div><div><b>169,32 m²</b><span>área privativa</span></div></div>
+ </div>
+</section>
+
+<!-- 13 CASA EXTERIOR -->
+<section class="slide" data-sec="Casas Valle" data-th="i-casa_ext">
+ <div class="split">
+  <div class="im"><div class="bg i-casa_ext kb"></div><div class="tag rv">Casa Valle</div></div>
+  <div class="pn">
+   <p class="kick rv">Casa Valle</p>
+   <h2 class="h2 rv" style="--d:.15">Pedra, madeira e a varanda <em>aberta à paisagem</em></h2>
+   <p class="p rv" style="--d:.3">O caminho da permanência: a escala de uma casa de família dentro do villaggio, com jardim próprio e a rotina da vila à porta — restaurante, spa, piscina e trilhas a poucos passos, preservando o próprio território.</p>
+   <div class="specs rv" style="--d:.5">
+    <div class="spec"><div class="v">169,32<small>m²</small></div><div class="l">Área privativa</div></div>
+    <div class="spec"><div class="v">2</div><div class="l">Suítes · master c/ banheira</div></div>
+    <div class="spec"><div class="v">27,33<small>m²</small></div><div class="l">Varanda gourmet</div></div>
+    <div class="spec"><div class="v">Térrea</div><div class="l">Pavimento único</div></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- 14 CASA PLANTA -->
+<section class="slide" data-sec="Casas Valle" data-th="i-casa_plan">
+ <div class="plan-s">
+  <div class="pl"><div class="plan rv rs" data-noswipe><div class="bg i-casa_plan"></div></div><div class="zhint">Toque para ampliar</div></div>
+  <div class="pn">
+   <p class="kick rv">Planta humanizada · Casa Valle</p>
+   <h2 class="h2 rv" style="--d:.15">Uma casa para receber <em>— e para ficar</em></h2>
+   <p class="p rv" style="--d:.3">Estar, jantar e cozinha em um só gesto, com lareira a lenha, abertos para a varanda gourmet; duas suítes nas extremidades preservam a intimidade de cada um, com lavanderia de apoio.</p>
+   <ul class="amb rv" style="--d:.45">
+    <li><span>Área privativa</span><span>169,32 m²</span></li>
+    <li><span>Suítes · master com banheira</span><span>2</span></li>
+    <li><span>Varanda gourmet integrada ao estar</span><span>27,33 m²</span></li>
+    <li><span>Lareira a lenha · lavanderia</span><span>✓</span></li>
+   </ul>
+  </div>
+ </div>
+</section>
+
+<!-- 15 CASA GALERIA -->
+<section class="slide s-gal" data-sec="Casas Valle" data-th="i-casa_estar">
+ <div class="gal">
+  <div class="g a" data-k="Estar" data-t="O estar, aberto para o vale"><div class="bg i-casa_estar"></div></div>
+  <div class="g" data-k="Cozinha" data-t="Cozinha e jantar integrados"><div class="bg i-casa_cozinha"></div></div>
+  <div class="g" data-k="Suíte" data-t="A suíte, luz natural e silêncio"><div class="bg i-casa_quarto"></div></div>
+  <div class="g" data-k="Varanda" data-t="A varanda gourmet para o vale"><div class="bg i-casa_varanda"></div></div>
+ </div>
+ <div class="sh-b"></div>
+ <div class="gcap"><p class="kick rv">Casa Valle · <span class="k">Estar</span></p><h2 class="h2 rv t" style="--d:.15">O estar, aberto para o vale</h2></div>
+ <div class="thumbs rv" style="--d:.4"></div>
+</section>
+
+<!-- 16 MANSÕES ABERTURA -->
+<section class="slide open" data-sec="Mansões" data-th="i-man_aereo">
+ <div class="bg i-man_aereo kb"></div><div class="sh-b"></div>
+ <div class="ct">
+  <div class="row"><span class="num rv">III</span></div>
+  <h2 class="ttl rv wipe" style="--d:.2">Mansões</h2>
+  <p class="lead rv" style="--d:.5"><em>A medida ampla da vida</em> — imponência silenciosa, pedra e horizonte.</p>
+  <div class="meta rv" style="--d:.7"><div><b>11</b><span>unidades</span></div><div><b>Mansão Alto Vale</b><span>tipologia</span></div><div><b>284,41 m²</b><span>área privativa</span></div></div>
+ </div>
+</section>
+
+<!-- 17 MANSÃO EXTERIOR -->
+<section class="slide" data-sec="Mansões" data-th="i-man_ext">
+ <div class="split">
+  <div class="im"><div class="bg i-man_ext kb"></div><div class="tag rv">Mansão Alto Vale</div></div>
+  <div class="pn">
+   <p class="kick rv">Mansão Alto Vale</p>
+   <h2 class="h2 rv" style="--d:.15">No alto do platô, <em>os vales como horizonte permanente</em></h2>
+   <p class="p rv" style="--d:.3">Três suítes, a principal com closet e banheira, e um grande estar aberto à varanda e à piscina privativa: a escala para reunir a família inteira e preservar a intimidade de cada um.</p>
+   <div class="specs rv" style="--d:.5">
+    <div class="spec"><div class="v">284,41<small>m²</small></div><div class="l">Área privativa</div></div>
+    <div class="spec"><div class="v">3</div><div class="l">Suítes · master c/ closet</div></div>
+    <div class="spec"><div class="v">52,56<small>m²</small></div><div class="l">Estar, jantar e cozinha</div></div>
+    <div class="spec"><div class="v">Piscina</div><div class="l">Privativa, junto à varanda</div></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- 18 MANSÃO PLANTA -->
+<section class="slide" data-sec="Mansões" data-th="i-man_plan">
+ <div class="plan-s">
+  <div class="pl"><div class="plan rv rs" data-noswipe><div class="bg i-man_plan"></div></div><div class="zhint">Toque para ampliar</div></div>
+  <div class="pn">
+   <p class="kick rv">Planta humanizada · Mansão</p>
+   <h2 class="h2 rv" style="--d:.15">A amplitude organizada <em>para a vida em família</em></h2>
+   <p class="p rv" style="--d:.3">Um grande estar, jantar e cozinha com lareira a lenha, voltados para a varanda gourmet e a piscina privativa; três suítes em ala reservada, a principal com closet e banheira.</p>
+   <ul class="amb rv" style="--d:.45">
+    <li><span>Área privativa</span><span>284,41 m²</span></li>
+    <li><span>Estar, jantar e cozinha integrados</span><span>52,56 m²</span></li>
+    <li><span>Varanda com piscina privativa</span><span>27,44 m²</span></li>
+    <li><span>Suítes · master com closet e banheira</span><span>3</span></li>
+   </ul>
+  </div>
+ </div>
+</section>
+
+<!-- 19 MANSÃO GALERIA -->
+<section class="slide s-gal" data-sec="Mansões" data-th="i-man_estar">
+ <div class="gal">
+  <div class="g a" data-k="Estar" data-t="O estar da mansão"><div class="bg i-man_estar"></div></div>
+  <div class="g" data-k="Jantar" data-t="Cozinha e jantar para a família inteira"><div class="bg i-man_jantar"></div></div>
+  <div class="g" data-k="Suíte master" data-t="A suíte principal, com banheira e vista"><div class="bg i-man_quarto"></div></div>
+ </div>
+ <div class="sh-b"></div>
+ <div class="gcap"><p class="kick rv">Mansão · <span class="k">Estar</span></p><h2 class="h2 rv t" style="--d:.15">O estar da mansão</h2></div>
+ <div class="thumbs rv" style="--d:.4"></div>
+</section>
+
+<!-- 20 VARANDA DA MANSÃO -->
+<section class="slide s-full" data-sec="Mansões" data-th="i-man_varanda">
+ <div class="bg i-man_varanda kb"></div><div class="sh-b"></div>
+ <div class="ov">
+  <p class="kick rv">A varanda da mansão</p>
+  <h2 class="h1 rv" style="--d:.2">Piscina privativa,<br><em>e o vale inteiro como paisagem.</em></h2>
+ </div>
+</section>
+
+<!-- 21 COMPARADOR -->
+<section class="slide" data-sec="Compare" data-th="i-panorama">
+ <div class="full-ct" style="background:var(--g)">
+  <p class="kick rv">Compare as tipologias · toque para destacar</p>
+  <h2 class="h1 rv" style="--d:.15">Presença, permanência <em>e amplitude</em></h2>
+  <div class="cmp rv" id="cmp" style="--d:.35">
+   <div class="rh"></div>
+   <div class="hd" data-c="1"><span>Presença</span><b>Cabana</b></div>
+   <div class="hd" data-c="2"><span>Permanência</span><b>Casa</b></div>
+   <div class="hd" data-c="3"><span>Amplitude</span><b>Mansão</b></div>
+   <div class="rh">Área privativa</div>
+   <div class="c ar" data-c="1">até 80,65 m²<span class="barw"><i style="--w:28%"></i></span></div>
+   <div class="c ar" data-c="2">169,32 m²<span class="barw"><i style="--w:59.5%"></i></span></div>
+   <div class="c ar" data-c="3">284,41 m²<span class="barw"><i style="--w:100%"></i></span></div>
+   <div class="rh">Unidades</div><div class="c" data-c="1">30</div><div class="c" data-c="2">14</div><div class="c" data-c="3">11</div>
+   <div class="rh">Dormitórios</div><div class="c" data-c="1">Ambiente único · king</div><div class="c" data-c="2">2 suítes</div><div class="c" data-c="3">3 suítes</div>
+   <div class="rh">Varanda</div><div class="c" data-c="1">10,20 m² para o vale</div><div class="c" data-c="2">27,33 m² gourmet</div><div class="c" data-c="3">27,44 m² com piscina</div>
+   <div class="rh">Lareira a lenha</div><div class="c" data-c="1">✓</div><div class="c" data-c="2">✓</div><div class="c" data-c="3">✓</div>
+   <div class="rh">Piscina privativa</div><div class="c" data-c="1">—</div><div class="c" data-c="2">—</div><div class="c" data-c="3">✓</div>
+   <div class="rh">Ideal para</div><div class="c" data-c="1">Refúgio a dois</div><div class="c" data-c="2">Receber a família</div><div class="c" data-c="3">Reunir gerações</div>
+  </div>
+ </div>
+</section>
+
+<!-- 22 HOTEL -->
+<section class="slide s-full" data-sec="A vila a serviço" data-th="i-hotel_aereo">
+ <div class="bg i-hotel_aereo kb"></div><div class="sh-b"></div><div class="sh-l" style="opacity:.6"></div>
+ <div class="full-ct" style="justify-content:flex-end;padding-bottom:12vh">
+  <p class="kick rv">O hotel e a estrutura da vila</p>
+  <h2 class="h1 rv" style="--d:.15">Um hotel no centro da vila — <em>extensão de cada residência</em></h2>
+  <div class="nums" style="grid-template-columns:repeat(4,1fr)">
+   <div class="nm rv" style="--d:.35"><div class="h3">Gastronomia <em>assinada</em></div><div class="l">Restaurante, café e bar</div></div>
+   <div class="nm rv" style="--d:.45"><div class="h3">Piscina, <em>spa</em></div><div class="l">Academia e wellness</div></div>
+   <div class="nm rv" style="--d:.55"><div class="h3">Salão de <em>eventos</em></div><div class="l">Para até 400 pessoas</div></div>
+   <div class="nm rv" style="--d:.65"><div class="h3">Praças e <em>natureza</em></div><div class="l">Trilhas, lago e lounges</div></div>
+  </div>
+ </div>
+</section>
+
+<!-- 23 GASTRONOMIA DIA/NOITE -->
+<section class="slide" data-sec="A vila a serviço" data-th="i-praca_noite">
+ <div class="dn" id="dn">
+  <div class="bg i-praca"></div>
+  <div class="bg night i-praca_noite"></div>
+ </div>
+ <div class="sh-b" style="pointer-events:none;background:linear-gradient(180deg,rgba(10,22,16,.6),rgba(10,22,16,0) 35%)"></div>
+ <div class="ov top" style="top:15vh;pointer-events:none">
+  <p class="kick rv">Praça da Fonte</p>
+  <h2 class="h2 rv" style="--d:.15">Gastronomia que convida <em>a permanecer</em></h2>
+  <p class="p rv" style="--d:.3">Restaurante assinado, café e bar abertos às praças — do café da manhã sem pressa ao jantar sob as luzes da Praça das Oliveiras.</p>
+  <div class="dnb rv" style="--d:.5;pointer-events:auto"><button class="chip a" data-dn="0">☀ Dia</button><button class="chip" data-dn="1">☾ Noite</button></div>
+ </div>
+</section>
+
+<!-- 24 BEM-ESTAR -->
+<section class="slide" data-sec="A vila a serviço" data-th="i-spa">
+ <div class="mos" style="grid-template-columns:1.3fr 1fr;--n:2">
+  <div><div class="bg i-spa kb"></div><span class="lbl">Piscina coberta e aquecida</span></div>
+  <div><div class="bg i-academia kb2"></div><span class="lbl">Academia com vista</span></div>
+ </div>
+ <div class="sh-b" style="pointer-events:none"></div>
+ <div class="ov top" style="top:15vh">
+  <p class="kick rv">Bem-estar</p>
+  <h2 class="h1 rv" style="--d:.15"><em>Bem-estar</em> de resort<br>o ano inteiro</h2>
+  <p class="p rv" style="--d:.3">Água aquecida, spa, deck de yoga, espaço fitness ao ar livre, espaço kids e pet.</p>
+ </div>
+</section>
+
+<!-- 25 CELEBRAÇÕES -->
+<section class="slide" data-sec="A vila a serviço" data-th="i-eventos">
+ <div class="mos" style="grid-template-columns:1.6fr 1fr;grid-template-rows:1fr 1fr;--n:3">
+  <div style="grid-row:1/3"><div class="bg i-eventos kb"></div><span class="lbl">Salão de eventos</span></div>
+  <div><div class="bg i-vinhedo"></div><span class="lbl">Parreirais de uva</span></div>
+  <div><div class="bg i-capela"></div><span class="lbl">Espaço ecumênico</span></div>
+ </div>
+ <div class="sh-b" style="pointer-events:none"></div>
+ <div class="ov" style="max-width:min(34rem,52vw)">
+  <p class="kick rv">Celebrações</p>
+  <h2 class="h1 rv" style="--d:.15">Dolce far <em>niente</em></h2>
+  <p class="p rv" style="--d:.3">Casamentos, aniversários, encontros de família e eventos corporativos — salão para 400 pessoas e altar entre as árvores.</p>
+ </div>
+</section>
+
+<!-- 26 CHEGADA -->
+<section class="slide" data-sec="A vila a serviço" data-th="i-portico">
+ <div class="mos" style="grid-template-columns:1.7fr 1fr;--n:2">
+  <div><div class="bg i-portico kb"></div><span class="lbl">O pórtico em pedra</span></div>
+  <div><div class="bg i-heli kb2"></div><span class="lbl">Heliponto</span></div>
+ </div>
+ <div class="sh-b" style="pointer-events:none"></div>
+ <div class="ov" style="max-width:min(36rem,56vw)">
+  <p class="kick rv">A chegada</p>
+  <h2 class="h1 rv" style="--d:.15">Infraestrutura <em>à altura do projeto</em></h2>
+  <div class="feat rv" style="--d:.35"><span class="chip">Heliponto</span><span class="chip">Estacionamento coberto</span><span class="chip">Serviços integrados</span><span class="chip">Pórtico com controle</span></div>
+ </div>
+</section>
+
+<!-- 27 VIVER -->
+<section class="slide" data-sec="Viver o villaggio" data-th="i-desfrutar">
+ <div class="mos" style="grid-template-columns:1fr 1fr;--n:2">
+  <div><div class="bg i-desfrutar kb"></div></div>
+  <div><div class="bg i-rentabilizar kb2"></div></div>
+ </div>
+ <div class="sh-b" style="pointer-events:none;background:linear-gradient(180deg,rgba(10,22,16,.3),rgba(10,22,16,.1) 30%,rgba(10,22,16,.92))"></div>
+ <div class="full-ct" style="justify-content:flex-end;padding-bottom:11vh">
+  <p class="kick rv">Viver o villaggio</p>
+  <div class="nums" style="grid-template-columns:1fr 1fr;margin-top:1rem">
+   <div class="nm rv" style="--d:.2"><div class="h2"><em>Desfrutar</em></div><p class="p" style="margin-top:.6rem">A residência é da família: para usar quando quiser, receber quem quiser — com gastronomia, bem-estar e hospitalidade do hotel ao lado.</p></div>
+   <div class="nm rv" style="--d:.4"><div class="h2"><em>Rentabilizar</em></div><p class="p" style="margin-top:.6rem">Possibilidade de integrar a unidade à operação hoteleira nos períodos livres, conforme regulamento da operação, sem garantia de resultado.</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- 28 CONDIÇÃO -->
+<section class="slide s-full" data-sec="Condição" data-th="i-infinity">
+ <div class="bg i-infinity kb"></div><div class="sh-all" style="background:rgba(14,30,22,.82)"></div>
+ <div class="full-ct">
+  <p class="kick rv">Pré-lançamento · tabela de oportunidade</p>
+  <h2 class="h1 rv" style="--d:.15">Como o pagamento <em>se organiza</em></h2>
+  <p class="p rv" style="--d:.3">A mesma estrutura para cabanas, casas e mansões — entrada na reserva, quatro reforços anuais e sessenta parcelas mensais, com correção pelo CUB SC.</p>
+  <div class="pay rv" style="--d:.45">
+   <div style="flex-grow:20;background:var(--au);color:var(--g)"><b>20%</b><span>Entrada</span></div>
+   <div style="flex-grow:25;background:var(--g3)"><b>25%</b><span>4 reforços anuais</span></div>
+   <div style="flex-grow:55;background:rgba(239,231,214,.1)"><b>55%</b><span>60 parcelas mensais</span></div>
+  </div>
+  <div class="tl rv" style="--d:.7">
+   <div class="ln"><i class="ln-grow"></i></div>
+   <div class="pt" style="left:3%"><b>Ato</b><span>Reserva</span></div>
+   <div class="pt" style="left:21%"><b>Mês 12</b><span>Reforço</span></div>
+   <div class="pt" style="left:40%"><b>Mês 24</b><span>Reforço</span></div>
+   <div class="pt" style="left:59%"><b>Mês 36</b><span>Reforço</span></div>
+   <div class="pt" style="left:78%"><b>Mês 48</b><span>Reforço</span></div>
+   <div class="pt" style="left:96%"><b>Mês 60</b><span>Última parcela</span></div>
+  </div>
+  <p class="cap rv" style="--d:.9;margin-top:1.2rem">Sugestão referencial · valores e disponibilidade na tabela vigente · condições definitivas em proposta e contrato</p>
+ </div>
+</section>
+
+<!-- 29 QUEM FAZ -->
+<section class="slide s-full" data-sec="Quem faz" data-th="i-panorama">
+ <div class="bg i-panorama kb"></div><div class="sh-all" style="background:rgba(14,30,22,.84)"></div>
+ <div class="full-ct">
+  <p class="kick rv">Quem faz</p>
+  <h2 class="h1 rv" style="--d:.15">Feito por quem constrói <em>há 33 anos</em></h2>
+  <p class="p rv" style="--d:.3">Desenvolvido pela VT Empreendimentos — a união da t12 com a Dimensão Construtora — com estudo da Caio Calfat, arquitetura da Somamos e gestão hoteleira Laghetto.</p>
+  <div class="parc">
+   <div class="rv" style="--d:.4"><span class="k">Incorporação</span><div class="lg i-parc0"></div></div>
+   <div class="rv" style="--d:.5"><span class="k">Estudo de mercado</span><div class="lg i-parc1"></div></div>
+   <div class="rv" style="--d:.6"><span class="k">Arquitetura</span><div class="lg i-parc2"></div></div>
+   <div class="rv" style="--d:.7"><span class="k">Construção</span><div class="lg i-parc3"></div></div>
+   <div class="rv" style="--d:.8"><span class="k">Gestão hoteleira</span><div class="lg i-parc4"></div></div>
+  </div>
+ </div>
+</section>
+
+<!-- 30 FINAL -->
+<section class="slide s-end" data-sec="Agende sua visita" data-th="i-final">
+ <div class="bg i-final kb"></div><div class="sh-all" style="background:radial-gradient(ellipse at center,rgba(14,30,22,.35),rgba(14,30,22,.8))"></div>
+ <div class="ct">
+  <div class="lgf lg i-logo rv"></div>
+  <p class="lead rv" style="--d:.5;margin-top:2rem">A escolha acontece melhor diante do terreno, no fim de tarde —<br><em>quando o vale explica o que cada residência significa.</em></p>
+  <div class="rv" style="--d:.8;margin-top:2.2rem;display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center">
+   <a class="cta" href="https://wa.me/5549984038033?text=Ol%C3%A1!%20Quero%20agendar%20uma%20visita%20ao%20Villaggio%20Toscano." target="_blank" rel="noopener">Agendar visita · WhatsApp</a>
+   <button class="cta gh" data-go="7">Rever residências</button>
+  </div>
+  <p class="cap rv" style="--d:1;margin-top:1.4rem">Atendimento Villaggio Toscano · +55 49 98403-8033</p>
+ </div>
+ <p class="disc">Imagens: perspectivas artísticas e imagens ilustrativas, com sugestão de decoração. Plantas humanizadas ilustrativas; áreas conforme projeto legal, sujeitas a ajustes no projeto executivo. Estrutura do hotel e das áreas comuns conforme projeto em desenvolvimento. Eventual renda pela operação hoteleira segue o regulamento da operação, sem garantia de resultado. Este material não constitui oferta; condições definitivas exclusivamente nos instrumentos contratuais.</p>
+</section>
+
+</main>
+
+<script>
+(function(){
+var S=[].slice.call(document.querySelectorAll('.slide')),N=S.length,cur=-1,lock=0,$=function(i){return document.getElementById(i)};
+function pad(n){return(n<10?'0':'')+n}
+var menu=$('menu'),mg=$('mg');
+S.forEach(function(s,i){var b=document.createElement('button');b.className='mi';b.innerHTML='<div class="th '+(s.dataset.th||'')+'"></div><span><b>'+pad(i+1)+'</b>'+s.dataset.sec+'</span>';b.onclick=function(){menu.classList.remove('op');go(i)};mg.appendChild(b)});
+var MI=mg.children;
+function fmt(n,dec){return n.toLocaleString('pt-BR',{minimumFractionDigits:dec,maximumFractionDigits:dec})}
+function count(s){[].forEach.call(s.querySelectorAll('[data-count]'),function(e){var to=+e.dataset.count,t0=null,dur=1800+Math.min(to,1)*0;function st(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/dur);k=1-Math.pow(1-k,3);e.textContent=fmt(Math.round(to*k),0);if(k<1)requestAnimationFrame(st)}e.textContent='0';setTimeout(function(){requestAnimationFrame(st)},700);setTimeout(function(){e.textContent=fmt(to,0)},700+dur+400)})}
+function go(i){
+ if(i<0||i>=N||i===cur)return;
+ var old=S[cur];cur=i;
+ S.forEach(function(s,k){s.classList.toggle('on',k===i);s.classList.toggle('near',Math.abs(k-i)<=1)});
+ if(old){old.dispatchEvent(new Event('leave'))}
+ var s=S[i];s.dispatchEvent(new Event('enter'));count(s);
+ $('cnt').innerHTML='<b>'+pad(i+1)+'</b> / '+N;$('sec').textContent=s.dataset.sec;
+ $('bar').style.width=((i+1)/N*100)+'%';
+ document.body.classList.toggle('hide-ui',i===0||i===N-1);document.body.classList.toggle('last',i===N-1);
+ for(var k=0;k<MI.length;k++)MI[k].classList.toggle('cur',k===i);
+ try{history.replaceState(null,'','#'+(i+1))}catch(e){}
+}
+function nx(){go(Math.min(N-1,cur+1))}function pv(){go(Math.max(0,cur-1))}
+$('nx').onclick=nx;$('pv').onclick=pv;
+$('mnb').onclick=function(){menu.classList.toggle('op')};
+var de=document.documentElement,fsOK=de.requestFullscreen||de.webkitRequestFullscreen;
+if(!fsOK)$('fsb').style.display='none';
+$('fsb').onclick=function(){var d=document;if(d.fullscreenElement||d.webkitFullscreenElement){(d.exitFullscreen||d.webkitExitFullscreen).call(d)}else{(de.requestFullscreen||de.webkitRequestFullscreen).call(de)}};
+document.addEventListener('click',function(e){var t=e.target.closest('[data-go]');if(!t)return;var g=t.dataset.go;if(g==='+1')nx();else go(+g-1)});
+document.addEventListener('keydown',function(e){var k=e.key;
+ if(k==='ArrowRight'||k==='ArrowDown'||k==='PageDown'||k===' '){e.preventDefault();nx()}
+ else if(k==='ArrowLeft'||k==='ArrowUp'||k==='PageUp'){e.preventDefault();pv()}
+ else if(k==='Home')go(0);else if(k==='End')go(N-1);
+ else if(k==='f'||k==='F')$('fsb').click();else if(k==='Escape')menu.classList.remove('op');else if(k==='m'||k==='M')menu.classList.toggle('op')});
+var wacc=0,wt=0;
+window.addEventListener('wheel',function(e){if(menu.classList.contains('op'))return;e.preventDefault();var now=Date.now();if(now<lock)return;wacc+=Math.abs(e.deltaY)>Math.abs(e.deltaX)?e.deltaY:e.deltaX;clearTimeout(wt);wt=setTimeout(function(){wacc=0},200);if(Math.abs(wacc)>40){wacc>0?nx():pv();wacc=0;lock=now+1000}},{passive:false});
+var tx,ty,tt,ns=false,sc=null,st0=0;function scroller(el){var s=el.closest&&el.closest('.pn,.full-ct');return s&&s.scrollHeight>s.clientHeight+4?s:null}
+document.addEventListener('touchstart',function(e){if(menu.classList.contains('op'))return;var t=e.touches[0];tx=t.clientX;ty=t.clientY;tt=Date.now();var z=e.target.closest('[data-noswipe]');ns=!!(z&&z.classList.contains('zoom'));sc=scroller(e.target);st0=sc?sc.scrollTop:0},{passive:true});
+document.addEventListener('touchend',function(e){if(ns||tx==null||menu.classList.contains('op'))return;var t=e.changedTouches[0],dx=t.clientX-tx,dy=t.clientY-ty;tx=null;if(Math.max(Math.abs(dx),Math.abs(dy))<45)return;var hz=Math.abs(dx)>Math.abs(dy);if(sc&&!hz){if(sc.scrollTop!==st0)return;if(dy<0&&sc.scrollTop+sc.clientHeight<sc.scrollHeight-2)return;if(dy>0&&sc.scrollTop>2)return}var d=hz?dx:dy;d<0?nx():pv()},{passive:true});
+menu.addEventListener('touchmove',function(e){e.stopPropagation()},{passive:true});
+document.body.addEventListener('touchmove',function(e){if(!menu.contains(e.target)&&!scroller(e.target))e.preventDefault()},{passive:false});
+
+/* galerias */
+[].forEach.call(document.querySelectorAll('.s-gal'),function(s){
+ var G=s.querySelectorAll('.g'),th=s.querySelector('.thumbs'),k=s.querySelector('.gcap .k'),t=s.querySelector('.gcap .t'),ix=0,tm;
+ [].forEach.call(G,function(g,i){var b=document.createElement('button');b.className=g.querySelector('.bg').className.replace('bg ','')+(i?'':' a');b.innerHTML='<i></i>';b.onclick=function(e){e.stopPropagation();show(i);loop()};th.appendChild(b)});
+ var B=th.children;
+ function show(i){ix=i;for(var j=0;j<G.length;j++){G[j].classList.toggle('a',j===i);B[j].classList.remove('a')}void B[i].offsetWidth;B[i].classList.add('a');k.textContent=G[i].dataset.k;t.style.opacity=0;setTimeout(function(){t.textContent=G[i].dataset.t;t.style.opacity=1},350)}
+ function loop(){clearInterval(tm);tm=setInterval(function(){show((ix+1)%G.length)},6000)}
+ s.addEventListener('enter',function(){show(0);loop()});s.addEventListener('leave',function(){clearInterval(tm)});
+});
+/* plantas com zoom */
+[].forEach.call(document.querySelectorAll('.plan'),function(p){var bg=p.querySelector('.bg');
+ function org(e){var r=p.getBoundingClientRect(),c=e.touches?e.touches[0]:e;bg.style.transformOrigin=((c.clientX-r.left)/r.width*100)+'% '+((c.clientY-r.top)/r.height*100)+'%'}
+ p.addEventListener('click',function(e){org(e);p.classList.toggle('zoom');var h=p.parentNode.querySelector('.zhint');if(h)h.textContent=p.classList.contains('zoom')?'Arraste para explorar · toque para sair':'Toque para ampliar'});
+ p.addEventListener('mousemove',function(e){if(p.classList.contains('zoom'))org(e)});
+ p.addEventListener('touchmove',function(e){if(p.classList.contains('zoom'))org(e)},{passive:true});
+ p.closest('.slide').addEventListener('leave',function(){p.classList.remove('zoom')});
+});
+/* implantação */
+var hs=document.querySelectorAll('.hs'),ips=document.querySelectorAll('.icard .ip');
+[].forEach.call(hs,function(h){h.addEventListener('click',function(e){e.stopPropagation();var n=+h.dataset.ip+1;[].forEach.call(hs,function(o){o.classList.toggle('a',o===h)});[].forEach.call(ips,function(p,i){p.classList.toggle('a',i===n)})})});
+/* comparador */
+var cmp=$('cmp');cmp.addEventListener('click',function(e){var c=e.target.closest('[data-c]');if(!c)return;var n=c.dataset.c;[].forEach.call(cmp.querySelectorAll('[data-c]'),function(x){x.classList.toggle('hl',x.dataset.c===n)})});
+/* dia/noite */
+var dn=$('dn'),dsl=dn.closest('.slide'),dbs=dsl.querySelectorAll('[data-dn]'),dtm;
+function dset(n){dn.classList.toggle('nt',n);[].forEach.call(dbs,function(b){b.classList.toggle('a',+b.dataset.dn===n)})}
+function dloop(){clearInterval(dtm);dtm=setInterval(function(){dset(dn.classList.contains('nt')?0:1)},5500)}
+[].forEach.call(dbs,function(b){b.onclick=function(e){e.stopPropagation();dset(+b.dataset.dn);dloop()}});
+dsl.addEventListener('enter',function(){dset(0);dloop()});dsl.addEventListener('leave',function(){clearInterval(dtm)});
+/* filme */
+var fv=$('film'),pb=$('playb'),url=null;
+function vurl(){return 'assets/filme.mp4'}
+fv.addEventListener('playing',function(){fv.classList.add('ok')});
+var fs=fv.closest('.slide');
+fs.addEventListener('enter',function(){if(!fv.src){var u=vurl();if(!u)return;fv.src=u}var p=fv.play();if(p&&p.catch)p.catch(function(){pb.innerHTML='▶ &nbsp;Assistir filme'});pb.innerHTML='❚❚ &nbsp;Pausar filme'});
+fs.addEventListener('leave',function(){fv.pause()});
+pb.onclick=function(e){e.stopPropagation();if(!fv.src)fv.src=vurl();if(fv.paused){fv.play();pb.innerHTML='❚❚ &nbsp;Pausar filme'}else{fv.pause();pb.innerHTML='▶ &nbsp;Assistir filme'}};
+/* pré-aquecer vídeo após carregar */
+setTimeout(vurl,2500);
+var h=parseInt((location.hash||'').slice(1),10);go(h>0&&h<=N?h-1:0);
+})();
+</script>
+</body>
+</html>

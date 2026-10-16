@@ -1,0 +1,29 @@
+{
+  "name": "nosso-calendario",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Nosso Calendário — agenda familiar compartilhada (PWA + Google Calendar)",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "node scripts/dev-server.mjs",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "icons": "node scripts/make-icons.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "preact": "^10.29.8"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@preact/preset-vite": "^2.10.6",
+    "typescript": "^5.9.3",
+    "vite": "^6.4.4",
+    "vitest": "^3.2.7"
+  }
+}

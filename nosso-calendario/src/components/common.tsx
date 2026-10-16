@@ -1,21 +1,31 @@
 import { createContext } from 'preact';
-import { useContext, useEffect, useState } from 'preact/hooks';
+import { useContext, useLayoutEffect, useRef, useState } from 'preact/hooks';
 import type { CalEvent, Category, Holiday, Person } from '../../shared/types';
 import { CATEGORY_LABELS } from '../../shared/model.js';
 import { formatRange } from '../../shared/dates.js';
 import { engine, type EngineState } from '../services/engine';
 import { CategoryIcon, IconCheck } from './Icons';
 
-/** Re-renderiza quando o motor muda. */
+/**
+ * Re-renderiza quando o motor muda. A assinatura é síncrona e compara a
+ * versão vista na renderização: uma resposta de rede que chegue antes da
+ * assinatura nunca deixa a tela desatualizada.
+ */
 export function useEngine(): EngineState {
   const [, force] = useState(0);
-  useEffect(() => engine.subscribe(() => force((n) => n + 1)), []);
+  const seen = useRef(engine.state.version);
+  seen.current = engine.state.version;
+  useLayoutEffect(() => {
+    const unsubscribe = engine.subscribe(() => force((n) => n + 1));
+    if (engine.state.version !== seen.current) force((n) => n + 1);
+    return unsubscribe;
+  }, []);
   return engine.state;
 }
 
 export interface UiActions {
   openEvent: (ev: CalEvent) => void;
-  openNew: (preset?: { date?: string; time?: string }) => void;
+  openNew: (preset?: { date?: string; time?: string }, trigger?: Element | null) => void;
   openHoliday: (h: Holiday) => void;
   labels: Record<Person, string>;
   conflictIds: Set<string>;

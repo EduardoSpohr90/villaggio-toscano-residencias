@@ -12,7 +12,7 @@ import { onUpdateReady, applyUpdate } from './services/sw';
 import { Ui, useEngine, type UiActions } from './components/common';
 import { EventSheet } from './components/EventSheet';
 import { AccountSheet } from './components/AccountSheet';
-import { Sheet } from './components/Sheet';
+import { Sheet, rememberTrigger } from './components/Sheet';
 import { MonthView } from './components/MonthView';
 import { YearView } from './components/YearView';
 import { WeekView } from './components/WeekView';
@@ -103,7 +103,8 @@ function title(view: View, cursor: string) {
 /** Campo invisível que recebe o foco no toque de "+ Novo": no iOS o teclado
  * só abre se o foco acontecer dentro do gesto; ao abrir o formulário o foco
  * passa para o título e o teclado continua aberto. */
-function catchFocus() {
+function catchFocus(trigger?: Element | null) {
+  rememberTrigger(trigger || document.activeElement);
   const el = document.getElementById('focus-catcher') as HTMLInputElement | null;
   if (!el) return;
   try {
@@ -216,8 +217,8 @@ export function App() {
     labels: s.labels,
     conflictIds,
     openEvent: (ev) => setSheet({ type: 'edit', event: ev }),
-    openNew: (preset) => {
-      catchFocus();
+    openNew: (preset, trigger) => {
+      catchFocus(trigger);
       setSheet({ type: 'new', preset });
     },
     openHoliday: (h) => setSheet({ type: 'holiday', holiday: h }),
@@ -334,7 +335,7 @@ export function App() {
           type="button"
           class="fab"
           data-testid="new-button"
-          onClick={() => ui.openNew(view === 'month' ? { date: selected } : undefined)}
+          onClick={(e) => ui.openNew(view === 'month' ? { date: selected } : undefined, e.currentTarget as Element)}
         >
           <IconPlus />
           Novo

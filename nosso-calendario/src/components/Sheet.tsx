@@ -7,6 +7,12 @@
 import { useEffect, useRef } from 'preact/hooks';
 import type { ComponentChildren } from 'preact';
 
+let returnTarget: HTMLElement | null = null;
+/** Quem abriu o modal (para devolver o foco ao fechar). */
+export function rememberTrigger(el: Element | null) {
+  returnTarget = el instanceof HTMLElement && el.id !== 'focus-catcher' ? el : null;
+}
+
 let locks = 0;
 let savedY = 0;
 
@@ -36,6 +42,19 @@ function unlockScroll() {
   window.scrollTo(0, savedY);
 }
 
+// Pilha de modais abertos: Esc fecha sempre o de cima, esteja o foco onde estiver.
+const stack: Array<{ close: () => void }> = [];
+let escBound = false;
+function bindEscape() {
+  if (escBound) return;
+  escBound = true;
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape' || !stack.length) return;
+    e.preventDefault();
+    stack[stack.length - 1].close();
+  });
+}
+
 const FOCUSABLE =
   'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
 
@@ -58,7 +77,8 @@ export function Sheet({ title, onClose, children, variant = 'sheet', left, right
   closeRef.current = onClose;
 
   useEffect(() => {
-    const previous = document.activeElement as HTMLElement | null;
+    const active = document.activeElement as HTMLElement | null;
+    const previous = active && active.id === 'focus-catcher' ? returnTarget : active;
     lockScroll();
     const app = document.getElementById('main');
     if (app && locks === 1) app.setAttribute('aria-hidden', 'true');
@@ -70,11 +90,11 @@ export function Sheet({ title, onClose, children, variant = 'sheet', left, right
     } catch {
       target && target.focus();
     }
+    const entry = { close: () => closeRef.current() };
+    stack.push(entry);
+    bindEscape();
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        e.stopPropagation();
-        closeRef.current();
-      } else if (e.key === 'Tab' && el) {
+      if (e.key === 'Tab' && el) {
         const items = Array.from(el.querySelectorAll<HTMLElement>(FOCUSABLE)).filter((x) => x.offsetParent !== null);
         if (!items.length) return;
         const first = items[0];
@@ -90,6 +110,8 @@ export function Sheet({ title, onClose, children, variant = 'sheet', left, right
     };
     el && el.addEventListener('keydown', onKey);
     return () => {
+      const i = stack.indexOf(entry);
+      if (i >= 0) stack.splice(i, 1);
       el && el.removeEventListener('keydown', onKey);
       if (app && locks === 1) app.removeAttribute('aria-hidden');
       unlockScroll();

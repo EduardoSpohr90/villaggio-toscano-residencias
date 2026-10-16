@@ -7,7 +7,7 @@
   --ink: #1c1c1e;
   --ink-2: #3a3a3c;
   --muted: #636366;
-  --faint: #8e8e93;
+  --faint: #707075; /* ≥ 4.5:1 sobre branco e sobre o fundo */
   --line: #e5e3de;
   --line-2: #d6d3cc;
   --hover: rgba(28, 28, 30, 0.05);
@@ -25,7 +25,7 @@
   --esposa-tint: #f6e9ef;
   --casal: #3a7356;
   --casal-tint: #e6f0ea;
-  --holiday: #946410;
+  --holiday: #835708;
   --holiday-tint: #f6eedd;
   --busy: #7c7c80;
   --busy-tint: #ececee;
@@ -596,8 +596,11 @@ button {
   gap: 2px;
   overflow: hidden;
 }
-.m-cell.out {
-  opacity: 0.38;
+.m-cell.out .m-num {
+  color: var(--muted);
+}
+.m-cell.out .m-chip {
+  opacity: 0.6;
 }
 .m-cell.selected {
   background: var(--hover);
@@ -1121,7 +1124,7 @@ button {
   gap: 2px;
   border: 0;
   background: transparent;
-  color: var(--faint);
+  color: var(--muted);
   font-size: 11px;
   font-weight: 600;
 }

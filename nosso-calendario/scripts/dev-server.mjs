@@ -34,6 +34,7 @@ function applyHeaders(res, pathname) {
 }
 
 const apiCache = new Map();
+let swSuffix = '';
 async function loadApi(pathname) {
   const rel = pathname.replace(/^\/api\//, '').replace(/\/$/, '');
   if (!/^[a-z/]+$/.test(rel) || rel.startsWith('_')) return null;
@@ -49,6 +50,16 @@ export function createDevServer() {
     const pathname = decodeURIComponent(url.pathname);
     applyHeaders(res, pathname);
     try {
+      // Somente nos testes E2E: simula a publicação de uma nova versão.
+      if (process.env.NC_E2E === '1' && pathname === '/__e2e/bump-sw') {
+        swSuffix = `\n// e2e ${Date.now()}`;
+        res.statusCode = 204;
+        return res.end();
+      }
+      if (pathname === '/sw.js' && swSuffix) {
+        res.setHeader('Content-Type', TYPES['.js']);
+        return res.end((await readFile(join(dist, 'sw.js'), 'utf8')) + swSuffix);
+      }
       if (pathname.startsWith('/api/')) {
         const fn = await loadApi(pathname);
         if (!fn) {

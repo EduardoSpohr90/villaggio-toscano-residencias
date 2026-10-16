@@ -159,7 +159,7 @@ export function createFakeGoogle({ clientId = 'test-client', defaultEmail = 'edu
       if (p === '/__test/reset') { reset(); return send(res, 200, { ok: true }); }
       if (p === '/__test/dump') {
         const cals = {};
-        for (const [id, c] of state.calendars) cals[id] = { summary: c.summary, events: [...c.events.values()].map(clean) };
+        for (const [id, c] of state.calendars) cals[id] = { summary: c.summary, events: [...c.events.values()].map((e) => clean(materialize(c, e))) };
         return send(res, 200, { calendars: cals, lists: Object.fromEntries([...state.lists].map(([k, v]) => [k, [...v]])) });
       }
       if (p === '/__test/expire') { state.tokens.clear(); return send(res, 200, { ok: true }); }

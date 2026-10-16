@@ -61,11 +61,21 @@ export function localHolidays(year) {
   return list.sort((a, b) => (a.date < b.date ? -1 : 1));
 }
 
-/** Classifica um item do calendário de feriados do Google. */
+// O Google descreve como "Feriado" datas que são ponto facultativo do serviço
+// público federal (ex.: Dia do Servidor Público, Véspera de Natal após 14h).
+// Para a família em Chapecó, isso não é feriado: classificamos pelo nome.
+const FACULTATIVOS = /servidor p[uú]blico|v[eé]spera|cinzas|carnaval|corpus christi/i;
+
+/**
+ * Classifica um item do calendário "Feriados no Brasil" do Google.
+ * Descrições reais (validado em out/2026): "Feriado" e
+ * "Data comemorativa\nPara ocultar as datas comemorativas, ...".
+ */
 export function classifyGoogleHoliday(name, description, date, local) {
   const desc = `${description || ''}`.toLowerCase();
+  if (FACULTATIVOS.test(String(name || '')) || /facultativ/.test(desc)) return 'facultativo';
   const known = local.find((h) => h.date === date && h.scope === 'nacional');
-  if (/facultativ/.test(desc)) return 'facultativo';
+  if (/comemorativ/.test(desc)) return known ? known.kind : 'comemorativa';
   if (/feriado/.test(desc)) return 'feriado';
   if (known) return known.kind;
   return 'comemorativa';

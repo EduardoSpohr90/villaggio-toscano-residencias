@@ -41,10 +41,12 @@ export function createFakeGoogle({ clientId = 'test-client', defaultEmail = 'edu
     state.calendars.set(HOLIDAY_CAL, { id: HOLIDAY_CAL, summary: 'Feriados no Brasil', events: new Map(), ex: new Map() });
     const hol = state.calendars.get(HOLIDAY_CAL);
     for (const [date, name, description] of [
-      ['2026-10-12', 'Nossa Senhora Aparecida', 'Feriado nacional'],
-      ['2026-11-02', 'Dia de Finados', 'Feriado nacional'],
-      ['2026-11-15', 'Proclamação da República', 'Feriado nacional'],
-      ['2026-10-15', 'Dia do Professor', 'Observância'],
+      // Formato real do calendário "Feriados no Brasil" (validado em out/2026)
+      ['2026-10-12', 'Nossa Senhora Aparecida', 'Feriado'],
+      ['2026-11-02', 'Finados', 'Feriado'],
+      ['2026-11-15', 'Proclamação da República', 'Feriado'],
+      ['2026-10-15', 'Dia do Professor', 'Data comemorativa\nPara ocultar as datas comemorativas, acesse Configurações do Google Agenda > Feriados no Brasil'],
+      ['2026-10-28', 'Dia do Servidor Público', 'Feriado'],
     ]) {
       hol.events.set(`h${date.replace(/-/g, '')}`, store({
         id: `h${date.replace(/-/g, '')}`, summary: name, description,

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { easter, localHolidays, mergeHolidays } from '../../shared/holidays.js';
+import { easter, localHolidays, mergeHolidays, classifyGoogleHoliday } from '../../shared/holidays.js';
 
 describe('feriados', () => {
   it('Páscoa', () => {
@@ -15,6 +15,15 @@ describe('feriados', () => {
     expect(at('2026-08-16')).toContain('Data Magna de Santa Catarina'); // domingo após 11/08
     expect(at('2026-08-25')).toContain('Aniversário de Chapecó');
     expect(at('2026-11-20')).toContain('Dia da Consciência Negra');
+  });
+  it('classifica o calendário real do Google (descrições de out/2026)', () => {
+    const local = localHolidays(2026);
+    const obs = 'Data comemorativa\nPara ocultar as datas comemorativas, acesse Configurações do Google Agenda > Feriados no Brasil';
+    expect(classifyGoogleHoliday('Nossa Senhora de Aparecida', 'Feriado', '2026-10-12', local)).toBe('feriado');
+    expect(classifyGoogleHoliday('Dia do Professor', obs, '2026-10-15', local)).toBe('comemorativa');
+    expect(classifyGoogleHoliday('Dia do Servidor Público', 'Feriado', '2026-10-28', local)).toBe('facultativo');
+    expect(classifyGoogleHoliday('Véspera de Natal (após às 14 horas)', 'Feriado', '2026-12-24', local)).toBe('facultativo');
+    expect(classifyGoogleHoliday('Natal', 'Feriado', '2026-12-25', local)).toBe('feriado');
   });
   it('Google prevalece e o local completa SC/Chapecó', () => {
     const google = [{ date: '2026-10-12', name: 'Nossa Senhora Aparecida', kind: 'feriado', scope: 'google', source: 'google' }];

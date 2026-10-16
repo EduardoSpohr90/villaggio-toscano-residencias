@@ -270,6 +270,7 @@ describe('feriados, disponibilidade e sessão', () => {
     const r = await edu.get('/api/holidays?year=2026');
     expect(r.body.holidays.find((h) => h.date === '2026-10-12')).toMatchObject({ name: 'Nossa Senhora Aparecida', kind: 'feriado' });
     expect(r.body.holidays.find((h) => h.date === '2026-10-15').kind).toBe('comemorativa');
+    expect(r.body.holidays.find((h) => h.date === '2026-10-28').kind).toBe('facultativo');
   });
   it('agendas individuais aparecem só como Ocupado', async () => {
     const r = await edu.get('/api/freebusy?from=2026-10-12&to=2026-10-19');

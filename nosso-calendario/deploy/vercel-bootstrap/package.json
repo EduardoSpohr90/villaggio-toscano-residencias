@@ -1,0 +1,8 @@
+{
+  "name": "nosso-calendario-bootstrap",
+  "private": true,
+  "type": "module",
+  "description": "Build de produção via Build Output API (sem conexão Git na Vercel).",
+  "engines": { "node": "22.x" },
+  "scripts": { "build": "node vercel-build.mjs" }
+}

@@ -129,6 +129,8 @@ Projeto: **nosso-calendario** (`prj_0xqi5jR4YQkETgOsJatg8KSBoINY`), diretório r
 
 Com o GitHub conectado à Vercel, cada push na branch de produção publica sozinho. Manualmente: `npx vercel --prod` dentro de `nosso-calendario/`.
 
+**Sem conexão Git (situação atual):** a publicação usa `deploy/vercel-bootstrap/`. A implantação envia só esse script; na Vercel ele baixa o código público no commit fixado na variável `NC_SOURCE_COMMIT` (e confere o hash), roda `npm ci`, o build e os 78 testes, e monta `.vercel/output` pela Build Output API (estático, funções `/api/*` e os mesmos cabeçalhos do `vercel.json`). Teste falho = publicação abortada. Para publicar outra versão: atualizar `NC_SOURCE_COMMIT` e reimplantar. Quando o GitHub for conectado, volte o projeto para `npm ci` / `npm run build` / `dist`.
+
 Cabeçalhos (`vercel.json`): CSP restritiva (`script-src 'self'`), HSTS, `X-Frame-Options: DENY`, `nosniff`, `Referrer-Policy`, `Permissions-Policy`, `noindex`. `sw.js` e `index.html` sem cache; `/assets/*` imutável; `/api/*` `no-store`.
 
 Proteção da Vercel: as URLs de cada deploy e as prévias exigem login Vercel; o domínio de produção é aberto, e **os dados só aparecem após login Google de uma conta autorizada**.

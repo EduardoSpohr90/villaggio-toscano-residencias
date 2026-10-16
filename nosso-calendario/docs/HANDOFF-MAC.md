@@ -11,6 +11,9 @@ Você está no meu Mac, na raiz do repositório `villaggio-toscano-residencias`,
 - Vercel: equipe `dimensao`, projeto `nosso-calendario` (`prj_0xqi5jR4YQkETgOsJatg8KSBoINY`), produção em `https://nosso-calendario-five.vercel.app`, Root Directory `nosso-calendario`. **Nenhum deploy bem-sucedido até agora.**
 - A sessão anterior, na nuvem, não tinha conexão Vercel↔GitHub e tentou um contorno (`deploy/vercel-bootstrap/`, Build Output API). O contorno falhou e deixou resíduos no projeto: Install Command `echo bootstrap`, Build Command `node vercel-build.mjs` ou `node diag-build.mjs`, e a variável `NC_SOURCE_COMMIT`. **Tudo isso deve ser desfeito.**
 - Variáveis já existentes na Vercel: `APP_URL`, `FAMILY_CALENDAR_NAME`, `ALLOWED_USERS`, `NC_SOURCE_COMMIT`. Faltam: `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET` e `SESSION_SECRET` (recomendado).
+- Fato observado no PR #1 em 16/10/2026: outra conta/equipe Vercel, `eduardo-6246`, **já tem este repositório conectado ao GitHub** (projeto `villaggio-toscano-residencias`, Root Directory vazio). Ela publica a apresentação do Villaggio, não o calendário. Me pergunte qual equipe usar antes da etapa 3:
+  - (a) seguir em `dimensao` com deploy pela CLI;
+  - (b) criar em `eduardo-6246` um projeto novo, `nosso-calendario`, a partir do mesmo repositório, com Root Directory `nosso-calendario`. Isso dá deploy automático a cada push, mas a URL de produção muda e precisa ser atualizada em `APP_URL` e no OAuth do Google.
 
 ## Regras invioláveis
 

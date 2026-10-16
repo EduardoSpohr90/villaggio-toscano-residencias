@@ -1,4 +1,3 @@
-// @ts-check
 // Posicionamento proporcional na grade da semana e filtros.
 
 import { timeToMin, eventDays } from './dates.js';

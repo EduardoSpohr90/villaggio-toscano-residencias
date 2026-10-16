@@ -9,10 +9,8 @@ import { HttpError } from './http.js';
 import { HOLIDAY_CALENDAR_ID } from './config.js';
 import { toGoogle, fromGoogle } from '../../shared/gcal.js';
 import { TZ, isEventId, bytesToBase32hex } from '../../shared/model.js';
-import {
-  wallToMs, isoToWall, addDays, diffDays, diffMinutesWall, addMinutesWall,
-} from '../../shared/dates.js';
-import { splitRule, isFirstOccurrence } from '../../shared/recurrence.js';
+import { wallToMs, isoToWall } from '../../shared/dates.js';
+import { splitRule, isFirstOccurrence, shiftSeries } from '../../shared/recurrence.js';
 import { classifyGoogleHoliday, localHolidays } from '../../shared/holidays.js';
 
 const enc = encodeURIComponent;
@@ -142,18 +140,6 @@ export async function createEvent(ctx, calId, input, { id, migrationId } = {}) {
 
 function masterToApp(master) {
   return fromGoogle(master);
-}
-
-/** Novo início/fim da série ao editar "toda a série" a partir de uma ocorrência. */
-function shiftSeries(masterApp, occStart, input) {
-  const dateDelta = diffDays(occStart.slice(0, 10), input.start.slice(0, 10));
-  const masterDate = addDays(masterApp.start.slice(0, 10), dateDelta);
-  if (input.allDay) {
-    const days = diffDays(input.start, input.end);
-    return { start: masterDate, end: addDays(masterDate, days) };
-  }
-  const start = `${masterDate}T${input.start.slice(11)}`;
-  return { start, end: addMinutesWall(start, diffMinutesWall(input.start, input.end)) };
 }
 
 /**

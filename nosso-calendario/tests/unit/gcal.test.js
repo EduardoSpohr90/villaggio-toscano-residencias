@@ -36,6 +36,12 @@ describe('mapeamento Google Calendar', () => {
     );
     expect(ev).toMatchObject({ seriesId: 's1', originalStart: '2026-10-19T19:00', rrule: 'FREQ=WEEKLY' });
   });
+  it('EXDATE de séries migradas, no fuso de SP', () => {
+    const g = toGoogle({ ...input, exdates: ['2026-10-23T09:00'] });
+    expect(g.recurrence).toEqual(['RRULE:FREQ=WEEKLY', 'EXDATE;TZID=America/Sao_Paulo:20261023T090000']);
+    const d = toGoogle({ ...input, allDay: true, start: '2026-10-16', end: '2026-10-17', exdates: ['2026-10-23'] });
+    expect(d.recurrence[1]).toBe('EXDATE;VALUE=DATE:20261023');
+  });
   it('ignora cancelados e converte descrição HTML em texto', () => {
     expect(fromGoogle({ status: 'cancelled', id: 'a' })).toBeNull();
     expect(htmlToText('Linha<br>outra &amp; <b>mais</b>')).toBe('Linha\noutra & mais');

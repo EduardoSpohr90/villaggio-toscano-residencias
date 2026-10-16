@@ -81,6 +81,12 @@ export function createFakeGoogle({ clientId = 'test-client', defaultEmail = 'edu
   function instancesOf(cal, master, fromMs, toMs) {
     const rule = (master.recurrence || []).find((r) => r.startsWith('RRULE:'));
     const ex = cal.ex.get(master.id) || { exdates: new Set(), overrides: new Map() };
+    for (const line of (master.recurrence || []).filter((r) => r.startsWith('EXDATE'))) {
+      for (const v of line.split(':')[1].split(',')) {
+        ex.exdates.add(v.length === 8 ? `${v.slice(0, 4)}-${v.slice(4, 6)}-${v.slice(6, 8)}`
+          : `${v.slice(0, 4)}-${v.slice(4, 6)}-${v.slice(6, 8)}T${v.slice(9, 11)}:${v.slice(11, 13)}`);
+      }
+    }
     const fromDate = isoToWall(new Date(fromMs).toISOString()).slice(0, 10);
     const toDate = addDays(isoToWall(new Date(toMs).toISOString()).slice(0, 10), 1);
     const occ = expandOccurrences(

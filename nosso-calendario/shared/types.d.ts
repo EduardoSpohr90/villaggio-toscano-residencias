@@ -23,6 +23,8 @@ export interface EventInput {
   reminder: Reminder;
   /** Regra RFC 5545 sem o prefixo 'RRULE:' */
   rrule?: string;
+  /** Ocorrências excluídas da série (hora de parede ou data) */
+  exdates?: string[];
 }
 
 export interface CalEvent extends EventInput {
@@ -37,8 +39,6 @@ export interface CalEvent extends EventInput {
   pending?: boolean;
   updated?: string;
   createdBy?: string;
-  /** Datas excluídas (somente séries locais) */
-  exdates?: string[];
 }
 
 export interface BusyBlock {

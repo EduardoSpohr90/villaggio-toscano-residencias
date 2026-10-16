@@ -1,4 +1,3 @@
-// @ts-check
 // Modelo de dados do Nosso Calendário. Compartilhado entre o app (navegador)
 // e as Vercel Functions: as mesmas regras validam o formulário e a API.
 
@@ -115,6 +114,12 @@ export function validateEventInput(input) {
   const reminder = REMINDERS.includes(input.reminder) ? input.reminder : 'none';
   const rrule = input.rrule ? String(input.rrule) : '';
   if (rrule && !isRRule(rrule)) return { ok: false, error: 'Recorrência inválida.' };
+  // Datas excluídas da série (usadas na migração de séries locais).
+  let exdates;
+  if (rrule && Array.isArray(input.exdates) && input.exdates.length) {
+    const okFmt = allDay ? isDate : isDateTime;
+    exdates = input.exdates.filter(okFmt).slice(0, 366);
+  }
   return {
     ok: true,
     value: {
@@ -130,6 +135,7 @@ export function validateEventInput(input) {
       notes: cleanText(input.notes, LIMITS.notes),
       reminder,
       rrule: rrule || undefined,
+      exdates,
     },
   };
 }

@@ -1,4 +1,3 @@
-// @ts-check
 // Recorrência RFC 5545 (subconjunto usado pelo app).
 // - buildRRule / parseRRule / describeRRule: formulário <-> 'FREQ=WEEKLY;...'
 // - expandOccurrences: expansão local (modo neste aparelho e itens na fila offline)
@@ -13,6 +12,7 @@ export const FREQS = ['DAILY', 'WEEKLY', 'MONTHLY', 'YEARLY'];
 export const BYDAY = ['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU'];
 const BYDAY_TO_WD = { SU: 0, MO: 1, TU: 2, WE: 3, TH: 4, FR: 5, SA: 6 };
 const WD_TO_BYDAY = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'];
+/** @type {Record<string, string>} */
 export const BYDAY_LABELS = { MO: 'seg', TU: 'ter', WE: 'qua', TH: 'qui', FR: 'sex', SA: 'sáb', SU: 'dom' };
 
 /**
@@ -248,4 +248,18 @@ export function splitRule(master, occStart, newRRule) {
 /** ID de instância no padrão do Google: <id>_<YYYYMMDD> ou <id>_<YYYYMMDDTHHMMSSZ>. */
 export function instanceId(seriesId, occStart, allDay) {
   return allDay ? `${seriesId}_${occStart.replace(/-/g, '')}` : `${seriesId}_${wallToCompactUtc(occStart)}`;
+}
+
+/**
+ * "Toda a série" editada a partir de uma ocorrência: aplica à série o mesmo
+ * deslocamento de data e o novo horário/duração escolhidos na ocorrência.
+ */
+export function shiftSeries(master, occStart, input) {
+  const dateDelta = diffDays(occStart.slice(0, 10), input.start.slice(0, 10));
+  const masterDate = addDays(master.start.slice(0, 10), dateDelta);
+  if (input.allDay) {
+    return { start: masterDate, end: addDays(masterDate, diffDays(input.start, input.end)) };
+  }
+  const start = `${masterDate}T${input.start.slice(11)}`;
+  return { start, end: addMinutesWall(start, diffMinutesWall(input.start, input.end)) };
 }

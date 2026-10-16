@@ -1,4 +1,3 @@
-// @ts-check
 // Conversão entre o modelo do app e o recurso Event do Google Calendar.
 // Metadados do app vão em extendedProperties.private — nunca no título.
 
@@ -39,8 +38,17 @@ export function toGoogle(ev, opts = {}) {
     extendedProperties: { private: priv },
   };
   if (opts.id) g.id = opts.id;
-  if (opts.includeRecurrence !== false) g.recurrence = ev.rrule ? [`RRULE:${ev.rrule}`] : [];
+  if (opts.includeRecurrence !== false) {
+    g.recurrence = ev.rrule ? [`RRULE:${ev.rrule}`, ...exdateLines(ev)] : [];
+  }
   return g;
+}
+
+function exdateLines(ev) {
+  if (!ev.exdates || !ev.exdates.length) return [];
+  if (ev.allDay) return [`EXDATE;VALUE=DATE:${ev.exdates.map((d) => d.replace(/-/g, '')).join(',')}`];
+  const stamp = (w) => `${w.replace(/-/g, '').replace(':', '')}00`;
+  return [`EXDATE;TZID=${TZ}:${ev.exdates.map(stamp).join(',')}`];
 }
 
 const PERSON_BY_COLOR = Object.fromEntries(Object.entries(GOOGLE_COLOR_BY_PERSON).map(([p, c]) => [c, p]));

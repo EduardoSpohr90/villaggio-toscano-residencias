@@ -1,4 +1,3 @@
-// @ts-check
 // Datas em America/Sao_Paulo, independentes do fuso do aparelho.
 //
 // Regras para evitar os erros clássicos de UTC:

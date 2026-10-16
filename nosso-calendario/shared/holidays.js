@@ -1,4 +1,3 @@
-// @ts-check
 // Feriados. Fonte principal: calendário público "Feriados no Brasil" do Google
 // (atualizado pelo próprio Google). Fonte local: cálculo abaixo, usado sem
 // conexão e para completar datas estaduais/municipais de Chapecó (SC).

@@ -1,4 +1,3 @@
-// @ts-check
 // Conflitos e períodos livres. Função central usada pela semana, pelo
 // formulário (alerta antes de salvar) e pela "Semana do casal".
 
